@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
-public class MovieServiceImp implements MovieService{
+public class MovieServiceImp implements MovieService {
 
     private List<Movie> movieList;
 
@@ -14,17 +14,12 @@ public class MovieServiceImp implements MovieService{
     public void initMovies() {
         movieList = new LinkedList<>(List.of(
                 Movie.builder()
-                        .withName("Lord of The Rings")
-                        .withGenre("Fantasy")
-                        .withLength(167)
-                        .build(),
-                Movie.builder()
-                        .withName("IT")
+                        .withtitle("IT")
                         .withGenre("Horror")
                         .withLength(125)
                         .build(),
                 Movie.builder()
-                        .withName("Tangled")
+                        .withtitle("Tangled")
                         .withGenre("Animation")
                         .withLength(167)
                         .build()));
@@ -41,9 +36,9 @@ public class MovieServiceImp implements MovieService{
     }
 
     @Override
-    public Movie getMovieByName(String name) {
+    public Movie getMovieByTitle(String title) {
         return movieList.stream()
-                .filter(movie -> movie.getName().equals(name))
+                .filter(movie -> movie.getTitle().equals(title))
                 .findFirst().orElse(null);
     }
 
@@ -53,11 +48,11 @@ public class MovieServiceImp implements MovieService{
     }
 
     @Override
-    public void updateMovie(String name, String genre, int length) {
-        Movie movie = getMovieByName(name);
-        if(movie != null) {
+    public void updateMovie(String title, String genre, int length) {
+        Movie movie = getMovieByTitle(title);
+        if (movie != null) {
             movieList.remove(movie);
-            Movie newMovie = new Movie(name, genre, length);
+            Movie newMovie = new Movie(title, genre, length);
             movieList.add(newMovie);
         }
     }

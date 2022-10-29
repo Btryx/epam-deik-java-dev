@@ -6,7 +6,7 @@ import lombok.Value;
 @Value
 public class Movie {
 
-    String name;
+    String title;
     String genre;
     int length;
 
@@ -15,12 +15,12 @@ public class Movie {
     }
 
     public static class Builder {
-        private String name;
+        private String title;
         String genre;
         int length;
 
-        public Builder withName(String name) {
-            this.name = name;
+        public Builder withtitle(String title) {
+            this.title = title;
             return this;
         }
 
@@ -35,7 +35,7 @@ public class Movie {
         }
 
         public Movie build() {
-            return new Movie(name, genre, length);
+            return new Movie(title, genre, length);
         }
     }
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.29">
+<file name="C:\Users\olahb\Desktop\Egyetem\5.félév\java\saját fork\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\Application.java">
+</file>
+<file name="C:\Users\olahb\Desktop\Egyetem\5.félév\java\saját fork\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\core\configuration\ApplicationConfiguration.java">
+</file>
+<file name="C:\Users\olahb\Desktop\Egyetem\5.félév\java\saját fork\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\core\movie\model\Movie.java">
+</file>
+<file name="C:\Users\olahb\Desktop\Egyetem\5.félév\java\saját fork\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\core\movie\MovieService.java">
+</file>
+<file name="C:\Users\olahb\Desktop\Egyetem\5.félév\java\saját fork\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\core\movie\MovieServiceImp.java">
+</file>
+<file name="C:\Users\olahb\Desktop\Egyetem\5.félév\java\saját fork\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\core\room\model\Room.java">
+</file>
+<file name="C:\Users\olahb\Desktop\Egyetem\5.félév\java\saját fork\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\core\room\RoomService.java">
+</file>
+<file name="C:\Users\olahb\Desktop\Egyetem\5.félév\java\saját fork\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\core\room\RoomServiceImp.java">
+</file>
+<file name="C:\Users\olahb\Desktop\Egyetem\5.félév\java\saját fork\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\core\screening\model\Screening.java">
+</file>
+<file name="C:\Users\olahb\Desktop\Egyetem\5.félév\java\saját fork\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\core\screening\ScreeningService.java">
+</file>
+<file name="C:\Users\olahb\Desktop\Egyetem\5.félév\java\saját fork\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\core\screening\ScreeningServiceImp.java">
+</file>
+<file name="C:\Users\olahb\Desktop\Egyetem\5.félév\java\saját fork\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\ui\commands\MovieCommands.java">
+</file>
+<file name="C:\Users\olahb\Desktop\Egyetem\5.félév\java\saját fork\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\ui\commands\RoomCommands.java">
+</file>
+<file name="C:\Users\olahb\Desktop\Egyetem\5.félév\java\saját fork\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\ui\configuration\Prompt.java">
+</file>
+</checkstyle>

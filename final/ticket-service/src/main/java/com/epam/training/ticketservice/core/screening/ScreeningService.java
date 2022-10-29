@@ -1,2 +1,4 @@
-package com.epam.training.ticketservice.core.screening;public class ScreeningService {
+package com.epam.training.ticketservice.core.screening;
+
+public interface ScreeningService {
 }
