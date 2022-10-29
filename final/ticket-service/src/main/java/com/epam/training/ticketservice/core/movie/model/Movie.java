@@ -10,6 +10,13 @@ public class Movie {
     String genre;
     int length;
 
+    @Override
+    public String toString() {
+        return   "\n" + title + " ("
+                 + genre + " "
+                 + length + " minutes)";
+    }
+
     public static Builder builder() {
         return new Builder();
     }

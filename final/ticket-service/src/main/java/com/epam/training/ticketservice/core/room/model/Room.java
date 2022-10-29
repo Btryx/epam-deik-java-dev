@@ -10,6 +10,15 @@ public class Room {
     int rows;
     int cols;
 
+    @Override
+    public String toString() {
+        return "\nRoom '"
+                 + name + "'" + " with "
+                 + rows*cols + " seats, "
+                 + rows + " rows and "
+                 + cols + " columns";
+    }
+
     public static Builder builder() {
         return new Builder();
     }

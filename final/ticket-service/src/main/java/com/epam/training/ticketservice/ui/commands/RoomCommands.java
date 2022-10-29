@@ -10,6 +10,7 @@ import org.springframework.shell.standard.ShellMethod;
 @ShellComponent
 @AllArgsConstructor
 public class RoomCommands {
+
     private final RoomService roomService;
 
     @ShellMethod(key = "create room", value = "Create new room")
