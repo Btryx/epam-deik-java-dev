@@ -2,7 +2,6 @@ package com.epam.training.ticketservice.core.movie;
 
 import com.epam.training.ticketservice.core.movie.model.Movie;
 
-import java.util.Currency;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -42,14 +41,24 @@ public class MovieServiceImp implements MovieService{
     }
 
     @Override
+    public Movie getMovieByName(String name) {
+        return movieList.stream()
+                .filter(movie -> movie.getName().equals(name))
+                .findFirst().orElse(null);
+    }
+
+    @Override
     public void deleteMovie(Movie movie) {
         movieList.remove(movie);
     }
 
     @Override
-    public void updateMovie(Movie movie, String name, String genre, int length) {
-        Movie newMovie = new Movie(name, genre, length);
-        movieList.remove(movie);
-        movieList.add(newMovie);
+    public void updateMovie(String name, String genre, int length) {
+        Movie movie = getMovieByName(name);
+        if(movie != null) {
+            movieList.remove(movie);
+            Movie newMovie = new Movie(name, genre, length);
+            movieList.add(newMovie);
+        }
     }
 }

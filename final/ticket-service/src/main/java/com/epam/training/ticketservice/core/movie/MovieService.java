@@ -11,9 +11,11 @@ public interface MovieService {
 
     List<Movie> getMovieList();
 
+    Movie getMovieByName(String name);
+
     void deleteMovie(Movie movie);
 
-    void updateMovie(Movie movie, String name, String genre, int length);
+    void updateMovie(String name, String genre, int length);
 
     void initMovies();
 }
