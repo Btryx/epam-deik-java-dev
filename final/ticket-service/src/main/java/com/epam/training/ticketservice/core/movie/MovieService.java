@@ -4,6 +4,7 @@ import com.epam.training.ticketservice.core.movie.model.Movie;
 
 import java.util.List;
 
+
 public interface MovieService {
 
     void initMovies();
@@ -18,4 +19,5 @@ public interface MovieService {
 
     void updateMovie(String name, String genre, int length);
 
+    List<String> getMovieListTitles();
 }

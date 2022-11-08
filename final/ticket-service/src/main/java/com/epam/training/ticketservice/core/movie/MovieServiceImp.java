@@ -1,11 +1,13 @@
 package com.epam.training.ticketservice.core.movie;
 
 import com.epam.training.ticketservice.core.movie.model.Movie;
+import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 
+@Service
 public class MovieServiceImp implements MovieService {
 
     private List<Movie> movieList;
@@ -14,14 +16,14 @@ public class MovieServiceImp implements MovieService {
     public void initMovies() {
         movieList = new LinkedList<>(List.of(
                 Movie.builder()
-                        .withtitle("IT")
+                        .withTitle("IT")
                         .withGenre("Horror")
                         .withLength(125)
                         .build(),
                 Movie.builder()
-                        .withtitle("Tangled")
+                        .withTitle("Tangled")
                         .withGenre("Animation")
-                        .withLength(167)
+                        .withLength(95)
                         .build()));
     }
 
@@ -55,5 +57,12 @@ public class MovieServiceImp implements MovieService {
             Movie newMovie = new Movie(title, genre, length);
             movieList.add(newMovie);
         }
+    }
+
+    @Override
+    public List<String> getMovieListTitles() {
+        List<String> movieTitlesList = new ArrayList<>();
+        movieList.forEach(movie -> movieTitlesList.add(movie.getTitle()));
+        return movieTitlesList;
     }
 }

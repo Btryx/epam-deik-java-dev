@@ -1,18 +1,19 @@
-#Sat Oct 29 14:14:02 CEST 2022
+#Tue Nov 08 23:09:31 CET 2022
 configuration*?=C6D0E6661190A273DA091050F52DADF518647F36
-C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\movie\\MovieService.java=1667044542883
-C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\movie\\model\\Movie.java=1667041954586
+C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\movie\\MovieService.java=1667943465732
+C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\movie\\model\\Movie.java=1667057013254
 C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\Application.java=1667037621998
-C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\room\\RoomService.java=1667044986542
+C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\room\\RoomService.java=1667942622591
 C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\ui\\commands\\MovieCommands.java=1667045638532
 C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\ui\\configuration\\Prompt.java=1667037742919
-C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\configuration\\ApplicationConfiguration.java=1667045125274
-C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\room\\RoomServiceImp.java=1667045621409
-C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\screening\\ScreeningService.java=1667044622560
-C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\movie\\MovieServiceImp.java=1667045621419
-C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\screening\\model\\Screening.java=1667044622553
-module-resource*?\:checkstyle-xpath-suppressions.xml=A30BDB40A82E83705346B6587FC017183CB78616
-module-resource*?\:checkstyle-suppressions.xml=C5A7954CD1ADD2D74CD3425182728EC1F2723BA5
-C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\room\\model\\Room.java=1667044315224
-C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\screening\\ScreeningServiceImp.java=1667044622547
-C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\ui\\commands\\RoomCommands.java=1667045638527
+C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\configuration\\ApplicationConfiguration.java=1667069909088
+C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\room\\RoomServiceImp.java=1667945366460
+C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\screening\\ScreeningService.java=1667944843016
+C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\movie\\MovieServiceImp.java=1667945366475
+C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\screening\\model\\Screening.java=1667945053668
+module-resource*?\:checkstyle-xpath-suppressions.xml=9DBC8DEB90EECCAD018FF380AFC186556B3F31FD
+module-resource*?\:checkstyle-suppressions.xml=EBB609CFBF13E65A57E6C9D1ECC4E19519392CFE
+C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\room\\model\\Room.java=1667945366465
+C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\ui\\commands\\ScreeningCommands.java=1667945366455
+C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\ui\\commands\\RoomCommands.java=1667942954865
+C\:\\Users\\olahb\\Desktop\\Egyetem\\5.f\u00E9l\u00E9v\\java\\saj\u00E1t\ fork\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\screening\\ScreeningServiceImp.java=1667945366470

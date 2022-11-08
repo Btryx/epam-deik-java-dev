@@ -25,9 +25,9 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2022</copyright>
     <item>
-      <title>File: 14,
+      <title>File: 5,
              Errors: 0,
-             Warnings: 2,
+             Warnings: 0,
              Infos: 0
       </title>
             <link>${project.url}/checkstyle.html</link>
@@ -46,118 +46,6 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#com.epam.training.ticketservice.core.movie.MovieService.java">com/epam/training/ticketservice/core/movie/MovieService.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#com.epam.training.ticketservice.core.configuration.ApplicationConfiguration.java">com/epam/training/ticketservice/core/configuration/ApplicationConfiguration.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#com.epam.training.ticketservice.ui.commands.RoomCommands.java">com/epam/training/ticketservice/ui/commands/RoomCommands.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#com.epam.training.ticketservice.ui.commands.MovieCommands.java">com/epam/training/ticketservice/ui/commands/MovieCommands.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#com.epam.training.ticketservice.Application.java">com/epam/training/ticketservice/Application.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#com.epam.training.ticketservice.core.room.model.Room.java">com/epam/training/ticketservice/core/room/model/Room.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#com.epam.training.ticketservice.ui.configuration.Prompt.java">com/epam/training/ticketservice/ui/configuration/Prompt.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#com.epam.training.ticketservice.core.room.RoomService.java">com/epam/training/ticketservice/core/room/RoomService.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#com.epam.training.ticketservice.core.room.RoomServiceImp.java">com/epam/training/ticketservice/core/room/RoomServiceImp.java</a>
                 </td>
                 <td>
@@ -172,35 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#com.epam.training.ticketservice.core.screening.model.Screening.java">com/epam/training/ticketservice/core/screening/model/Screening.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#com.epam.training.ticketservice.core.screening.ScreeningService.java">com/epam/training/ticketservice/core/screening/ScreeningService.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#com.epam.training.ticketservice.core.movie.model.Movie.java">com/epam/training/ticketservice/core/movie/model/Movie.java</a>
+                  <a href="${project.url}/checkstyle.html#com.epam.training.ticketservice.core.room.model.Room.java">com/epam/training/ticketservice/core/room/model/Room.java</a>
                 </td>
                 <td>
                   0
@@ -229,6 +89,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#com.epam.training.ticketservice.core.movie.MovieServiceImp.java">com/epam/training/ticketservice/core/movie/MovieServiceImp.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#com.epam.training.ticketservice.ui.commands.ScreeningCommands.java">com/epam/training/ticketservice/ui/commands/ScreeningCommands.java</a>
                 </td>
                 <td>
                   0

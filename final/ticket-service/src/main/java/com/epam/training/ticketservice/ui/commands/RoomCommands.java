@@ -28,7 +28,7 @@ public class RoomCommands {
         return "No room with name " + name + ".";
     }
 
-    @ShellMethod(key = "delete room", value = "Update existing room")
+    @ShellMethod(key = "delete room", value = "Delete existing room")
     public String deleteRoom(String name) {
         Room room = roomService.getRoomByName(name);
         if (room != null) {

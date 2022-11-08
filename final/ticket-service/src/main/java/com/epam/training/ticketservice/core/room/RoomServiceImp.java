@@ -1,10 +1,13 @@
 package com.epam.training.ticketservice.core.room;
 
 import com.epam.training.ticketservice.core.room.model.Room;
+import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+@Service
 public class RoomServiceImp implements RoomService {
 
     private List<Room> roomList;
@@ -54,5 +57,12 @@ public class RoomServiceImp implements RoomService {
             Room newRoom = new Room(name, rows, cols);
             roomList.add(newRoom);
         }
+    }
+
+    @Override
+    public List<String> getRoomNames() {
+        List<String> roomNames = new ArrayList<>();
+        roomList.forEach(room -> roomNames.add(room.getName()));
+        return roomNames;
     }
 }

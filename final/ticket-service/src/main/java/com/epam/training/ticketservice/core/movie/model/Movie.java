@@ -23,10 +23,10 @@ public class Movie {
 
     public static class Builder {
         private String title;
-        String genre;
-        int length;
+        private String genre;
+        private int length;
 
-        public Builder withtitle(String title) {
+        public Builder withTitle(String title) {
             this.title = title;
             return this;
         }

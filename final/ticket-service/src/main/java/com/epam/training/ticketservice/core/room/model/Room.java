@@ -14,7 +14,7 @@ public class Room {
     public String toString() {
         return "\nRoom '"
                  + name + "'" + " with "
-                 + rows*cols + " seats, "
+                 + rows * cols + " seats, "
                  + rows + " rows and "
                  + cols + " columns";
     }
@@ -25,8 +25,8 @@ public class Room {
 
     public static class Builder {
         private String name;
-        int rows;
-        int cols;
+        private int rows;
+        private int cols;
 
         public Builder withName(String name) {
             this.name = name;
