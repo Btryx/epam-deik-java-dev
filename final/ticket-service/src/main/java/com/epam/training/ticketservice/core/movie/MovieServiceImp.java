@@ -59,10 +59,4 @@ public class MovieServiceImp implements MovieService {
         }
     }
 
-    @Override
-    public List<String> getMovieListTitles() {
-        List<String> movieTitlesList = new ArrayList<>();
-        movieList.forEach(movie -> movieTitlesList.add(movie.getTitle()));
-        return movieTitlesList;
-    }
 }

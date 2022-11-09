@@ -7,10 +7,11 @@ import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 
 @Service
 public class ScreeningServiceImp implements ScreeningService {
@@ -20,23 +21,7 @@ public class ScreeningServiceImp implements ScreeningService {
     @Override
     public void initScreenings() throws ParseException {
 
-        Date date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm")
-                .parse("2021-03-15 11:00");
-
-        Date date2 = new SimpleDateFormat("yyyy-MM-dd HH:mm")
-                .parse("2022-03-15 11:00");
-
-        screeningList = new LinkedList<>(List.of(
-                Screening.builder()
-                        .withMovie("IT")
-                        .withRoom("2d")
-                        .withTime(date1)
-                        .build(),
-                Screening.builder()
-                        .withMovie("Tangled")
-                        .withRoom("3d")
-                        .withTime(date2)
-                        .build()));
+        screeningList = new LinkedList<>(List.of());
     }
 
     @Override

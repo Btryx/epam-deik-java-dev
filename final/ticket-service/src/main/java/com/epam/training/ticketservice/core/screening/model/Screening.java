@@ -1,27 +1,26 @@
 package com.epam.training.ticketservice.core.screening.model;
 
-import com.epam.training.ticketservice.core.movie.MovieService;
 import com.epam.training.ticketservice.core.movie.model.Movie;
 import com.epam.training.ticketservice.core.room.model.Room;
 import lombok.Value;
-import org.springframework.beans.factory.annotation.Autowired;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Value
 public class Screening {
 
-    //TODO these should be type movie and room
-    String movie;
-    String room;
+    Movie movie;
+    Room room;
     Date time;
 
     @Override
     public String toString() {
 
-        return   "\n" + movie + ", screened in room "
-                + room + ", at "
-                + time;
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+        String strDate= formatter.format(time);
+
+        return movie + ", screened in room \"" + room.getName() + "\", at " + strDate;
     }
 
     public static Builder builder() {
@@ -29,16 +28,16 @@ public class Screening {
     }
 
     public static class Builder {
-        private String movie;
-        private String room;
+        private Movie movie;
+        private Room room;
         private Date time;
 
-        public Builder withMovie(String movie) {
+        public Builder withMovie(Movie movie) {
             this.movie = movie;
             return this;
         }
 
-        public Builder withRoom(String room) {
+        public Builder withRoom(Room room) {
             this.room = room;
             return this;
         }

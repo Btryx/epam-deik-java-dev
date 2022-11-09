@@ -18,6 +18,4 @@ public interface MovieService {
     void deleteMovie(Movie movie);
 
     void updateMovie(String name, String genre, int length);
-
-    List<String> getMovieListTitles();
 }

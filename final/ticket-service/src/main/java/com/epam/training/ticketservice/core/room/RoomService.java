@@ -17,5 +17,4 @@ public interface RoomService {
 
     void updateRoom(String name, int rows, int cols);
 
-    List<String> getRoomNames();
 }

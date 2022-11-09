@@ -58,11 +58,4 @@ public class RoomServiceImp implements RoomService {
             roomList.add(newRoom);
         }
     }
-
-    @Override
-    public List<String> getRoomNames() {
-        List<String> roomNames = new ArrayList<>();
-        roomList.forEach(room -> roomNames.add(room.getName()));
-        return roomNames;
-    }
 }
