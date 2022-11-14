@@ -4,7 +4,7 @@ package com.epam.training.ticketservice.core.room.model;
 import lombok.Value;
 
 @Value
-public class Room {
+public class RoomDto {
 
     String name;
     int rows;
@@ -43,8 +43,8 @@ public class Room {
             return this;
         }
 
-        public Room build() {
-            return new Room(name, rows, cols);
+        public RoomDto build() {
+            return new RoomDto(name, rows, cols);
         }
     }
 }

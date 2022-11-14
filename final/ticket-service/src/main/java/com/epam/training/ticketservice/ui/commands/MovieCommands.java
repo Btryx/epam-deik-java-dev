@@ -1,48 +1,69 @@
 package com.epam.training.ticketservice.ui.commands;
 
 import com.epam.training.ticketservice.core.movie.MovieService;
-import com.epam.training.ticketservice.core.movie.model.Movie;
+import com.epam.training.ticketservice.core.movie.model.MovieDto;
+import com.epam.training.ticketservice.core.movie.persistence.Movie;
+import com.epam.training.ticketservice.core.user.UserDto;
+import com.epam.training.ticketservice.core.user.UserService;
+import com.epam.training.ticketservice.core.user.persistence.User;
 import lombok.AllArgsConstructor;
+import org.springframework.shell.Availability;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
+import org.springframework.shell.standard.ShellMethodAvailability;
+
+import java.util.Optional;
 
 @ShellComponent
 @AllArgsConstructor
 public class MovieCommands {
 
     private final MovieService movieService;
+    private final UserService userService;
 
+    @ShellMethodAvailability("isAvailable")
     @ShellMethod(key = "create movie", value = "Create new movie")
     public String addMovie(String title, String genre, int length) {
-        movieService.createMovie(new Movie(title, genre, length));
-        return "New movie created, with the title: " + title + ".";
+        movieService.createMovie(new MovieDto(title, genre, length));
+        return "New movie created, with the title: " + title;
     }
 
+    @ShellMethodAvailability("isAvailable")
     @ShellMethod(key = "update movie", value = "Update existing movie")
     public String editMovie(String title, String genre, int length) {
-        if (movieService.getMovieByTitle(title) != null) {
+        if (movieService.getMovieByTitle(title).isPresent()) {
             movieService.updateMovie(title, genre, length);
-            return "Movie with title " + title + " updated.";
+            return "Movie with title " + title + " updated";
         }
-        return "No movie with title " + title + ".";
+        return "No movie with title " + title;
     }
 
+    @ShellMethodAvailability("isAvailable")
     @ShellMethod(key = "delete movie", value = "Update existing movie")
     public String deleteMovie(String title) {
-        Movie movie = movieService.getMovieByTitle(title);
-        if (movie != null) {
-            movieService.deleteMovie(movie);
-            return "Movie with title " + title + " deleted.";
+        Optional<MovieDto> movie = movieService.getMovieByTitle(title);
+        if (movie.isPresent()) {
+            MovieDto newMovie =
+                    new MovieDto(movie.get().getTitle(), movie.get().getGenre(), movie.get().getLength());
+            movieService.deleteMovie(newMovie);
+            return "Movie with title " + title + " deleted";
         }
-        return "No movie with title " + title + ".";
+        return "No movie with title " + title;
     }
 
     @ShellMethod(key = "list movies", value = "List all movies")
     public String movieList() {
         if (movieService.getMovieList().isEmpty()) {
-            return "There are no movies at the moment!";
+            return "There are no movies at the moment";
         } else {
             return movieService.getMovieList().toString();
         }
+    }
+
+    private Availability isAvailable() {
+        Optional<UserDto> user = userService.describe();
+        return user.isPresent() && user.get().getRole() == User.Role.ADMIN
+                ? Availability.available()
+                : Availability.unavailable("You are not an admin!");
     }
 }

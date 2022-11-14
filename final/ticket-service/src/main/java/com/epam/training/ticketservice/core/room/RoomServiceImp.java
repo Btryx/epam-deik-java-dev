@@ -1,61 +1,60 @@
 package com.epam.training.ticketservice.core.room;
 
-import com.epam.training.ticketservice.core.room.model.Room;
+import com.epam.training.ticketservice.core.movie.model.MovieDto;
+import com.epam.training.ticketservice.core.movie.persistence.Movie;
+import com.epam.training.ticketservice.core.room.model.RoomDto;
+import com.epam.training.ticketservice.core.room.persistence.Room;
+import com.epam.training.ticketservice.core.room.persistence.RoomRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class RoomServiceImp implements RoomService {
 
-    private List<Room> roomList;
+    @Autowired
+    private RoomRepository roomRepository;
 
     @Override
-    public void initRooms() {
-        roomList = new LinkedList<>(List.of(
-                Room.builder()
-                        .withName("2D Room")
-                        .withRows(30)
-                        .withCols(12)
-                        .build(),
-                Room.builder()
-                        .withName("3D Room")
-                        .withRows(30)
-                        .withCols(12)
-                        .build()));
+    public void createRoom(RoomDto roomDto) {
+        Room room = new Room(roomDto.getName(), roomDto.getRows(), roomDto.getCols());
+        roomRepository.save(room);
     }
 
     @Override
-    public void createRoom(Room room) {
-        roomList.add(room);
+    public List<RoomDto> getRoomList() {
+        return roomRepository.findAll().stream()
+                .map(this::convertEntityToDto)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public List<Room> getRoomList() {
-        return roomList;
+    public RoomDto getRoomByName(String name) {
+        return convertEntityToDto(roomRepository.getById(name));
     }
 
     @Override
-    public Room getRoomByName(String name) {
-        return roomList.stream()
-                .filter(room -> room.getName().equals(name))
-                .findFirst().orElse(null);
-    }
-
-    @Override
-    public void deleteRoom(Room room) {
-        roomList.remove(room);
+    public void deleteRoom(RoomDto roomDto) {
+        Room room = new Room(roomDto.getName(), roomDto.getRows(), roomDto.getCols());
+        roomRepository.delete(room);
     }
 
     @Override
     public void updateRoom(String name, int rows, int cols) {
-        Room room = getRoomByName(name);
-        if (room != null) {
-            roomList.remove(room);
-            Room newRoom = new Room(name, rows, cols);
-            roomList.add(newRoom);
-        }
+        RoomDto room = getRoomByName(name);
+        RoomDto newRoom = new RoomDto(name, rows, cols);
+        deleteRoom(room);
+        createRoom(newRoom);
+    }
+
+    private RoomDto convertEntityToDto(Room room) {
+        return RoomDto.builder()
+                .withName(room.getName())
+                .withRows(room.getRows())
+                .withCols(room.getCols())
+                .build();
     }
 }

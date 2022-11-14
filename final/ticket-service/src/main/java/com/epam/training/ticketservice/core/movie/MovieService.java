@@ -1,21 +1,21 @@
 package com.epam.training.ticketservice.core.movie;
 
-import com.epam.training.ticketservice.core.movie.model.Movie;
+import com.epam.training.ticketservice.core.movie.model.MovieDto;
+import com.epam.training.ticketservice.core.movie.persistence.Movie;
 
 import java.util.List;
+import java.util.Optional;
 
 
 public interface MovieService {
 
-    void initMovies();
+    void createMovie(MovieDto movieDto);
 
-    void createMovie(Movie movie);
+    List<MovieDto> getMovieList();
 
-    List<Movie> getMovieList();
+    Optional<MovieDto> getMovieByTitle(String title);
 
-    Movie getMovieByTitle(String title);
-
-    void deleteMovie(Movie movie);
+    void deleteMovie(MovieDto movieDto);
 
     void updateMovie(String name, String genre, int length);
 }

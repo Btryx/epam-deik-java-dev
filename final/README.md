@@ -56,7 +56,7 @@ program futása leáll.
 ha az adott paramétert idézőjelek közé írjuk. Például a következő parancs 
 a _Spirited Away_ című film létrehozására használható.
 ```
-create movie "Sprited Away" animation 125
+create movieDto "Sprited Away" animation 125
 ```
 
 ##### Admin accounttal kapcsolatos parancsok
@@ -108,7 +108,7 @@ You are not signed in
 
 * A következő paranccsal új film hozható létre.
 ```
-create movie <film címe> <műfaj> <vetítés hossza percben>
+create movieDto <film címe> <műfaj> <vetítés hossza percben>
 ``` 
 * A parancs adminisztrációs parancs, így csak bejelentkezett 
 adminisztrátor felhasználó számára elérhető.
@@ -116,14 +116,14 @@ adminisztrátor felhasználó számára elérhető.
 
 Például:
 ```
-create movie Sátántangó drama 450
+create movieDto Sátántangó drama 450
 ```
 
 ###### Filmek módosítása
 
 * A következő paranccsal egy már meglévő filmet módosíthatunk.
 ```
-update movie <film címe> <műfaj> <vetítés hossza percben>
+update movieDto <film címe> <műfaj> <vetítés hossza percben>
 ```
 * A parancs adminisztrációs parancs, így csak bejelentkezett 
 adminisztrátor felhasználó számára elérhető.
@@ -133,7 +133,7 @@ adminisztrátor felhasználó számára elérhető.
 
 * A következő paranccsal egy már meglévő filmet törölhetünk.
 ```
-delete movie <film címe>
+delete movieDto <film címe>
 ```
 * A parancs adminisztrációs parancs, így csak bejelentkezett 
 adminisztrátor felhasználó számára elérhető.
@@ -161,7 +161,7 @@ filmnek. Minden sor egy-egy filmet ír le és a következőképpen épül fel.
 
 * A következő parancs lehetőséget biztosít vetítő termek létrehozására.
 ```
-create room <terem neve> <széksorok száma> <szék oszlopok száma>
+create roomDto <terem neve> <széksorok száma> <szék oszlopok száma>
 ```
 * A parancs adminisztrációs parancs, így csak bejelentkezett 
 adminisztrátor felhasználó számára elérhető.
@@ -171,7 +171,7 @@ adminisztrátor felhasználó számára elérhető.
 
 * A következő parancs lehetőséget biztosít már meglévő vetítő termek módosítására.
 ```
-update room <terem neve> <széksorok száma> <szék oszlopok száma>
+update roomDto <terem neve> <széksorok száma> <szék oszlopok száma>
 ```
 * A parancs adminisztrációs parancs, így csak bejelentkezett 
 adminisztrátor felhasználó számára elérhető.
@@ -181,7 +181,7 @@ adminisztrátor felhasználó számára elérhető.
 
 * A következő parancs lehetővé teszi egy már meglévő vetítő terem törlését.
 ```
-delete room <terem neve>
+delete roomDto <terem neve>
 ```
 * A parancs adminisztrációs parancs, így csak bejelentkezett 
 adminisztrátor felhasználó számára elérhető.
@@ -211,23 +211,23 @@ Room <terem neve> with <székek száma> seats, <széksorok száma> rows and <sz�
 * A következő parancs lehetőséget biztosít egy már létező film létező teremben történő
 vetítésének létrehozására egy adott időpontban.
 ```
-create screening <film címe> <terem neve> <vetítés kezdetének dátuma és ideje, YYYY-MM-DD hh:mm formátumban>
+create screeningDto <film címe> <terem neve> <vetítés kezdetének dátuma és ideje, YYYY-MM-DD hh:mm formátumban>
 ```
 Például, ha a Pedersoli terem és a Spirited Away film léteznek, akkor egy vetítés a 2021-03-14 16:00 
 időpontban létrehozható a következőképpen:
 ```
-create screening "Spirited Away" Pedersoli "2021-03-14 16:00"
+create screeningDto "Spirited Away" Pedersoli "2021-03-14 16:00"
 ```
 * Nem hozható létre a vetítés akkor, ha:
     * A vetítés időtartama bele esik egy másik, azonos teremben történő másik vetítés időtartamába. 
     A kimenet ebben az esetben:
     ```
-    There is an overlapping screening
+    There is an overlapping screeningDto
     ``` 
     * A vetítés időtartama bele esik egy másik, azonos teremben történő vetítés utáni 10 perces szünetbe (amely lehetőséget
     biztosít például a terem előkészítésére a következő vetítésre). A kimenet ebben az esetben:
     ```
-    This would start in the break period after another screening in this room
+    This would start in the break period after another screeningDto in this roomDto
     ```
 * A parancs adminisztrációs parancs, így csak bejelentkezett 
 adminisztrátor felhasználó számára elérhető.
@@ -237,7 +237,7 @@ adminisztrátor felhasználó számára elérhető.
 
 * A következő parancs lehetőséget biztosít egy már létező vetítés törlésére:
 ```
-delete screening <film címe> <terem neve> <vetítés kezdetének dátuma és ideje, YYYY-MM-DD hh:mm formátumban>
+delete screeningDto <film címe> <terem neve> <vetítés kezdetének dátuma és ideje, YYYY-MM-DD hh:mm formátumban>
 ```
 * A parancs adminisztrációs parancs, így csak bejelentkezett 
 adminisztrátor felhasználó számára elérhető.
@@ -255,11 +255,11 @@ There are no screenings
 * Amennyiben már van mentett vetítés, akkor a kimenet minden vetítést tartalmaz.
 A kimenet egy-egy sora egy-egy vetítés adatait tartalmazza a következő formátumban:
 ```
-<A film címe> (<műfaj>, <vetítés ideje percben> minutes), screened in room <terem neve>, at <vetítés kezdetének dátuma és ideje, YYYY-MM-DD hh:mm formátumban>
+<A film címe> (<műfaj>, <vetítés ideje percben> minutes), screened in roomDto <terem neve>, at <vetítés kezdetének dátuma és ideje, YYYY-MM-DD hh:mm formátumban>
 ```
 Például:
 ```
-Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 11:00
+Sátántangó (drama, 450 minutes), screened in roomDto Pedersoli, at 2021-03-15 11:00
 ```
 
 ### Követelmények a hármas jegyhez
@@ -334,7 +334,7 @@ jegyet:
     ```
     Signed in with account '<felhasználónév>'
     Your previous bookings are
-    Seats <a vetítésre foglalt ülések listája, ", "-el elválasztva, egy-egy ülés "(<sor>,<oszlop>) formátumú> on <film címe> in room <terem neve> starting at <vetítés kezdetének ideje YYYY-MM-DD hh:mm formátumban> for <a foglalás ára> HUF
+    Seats <a vetítésre foglalt ülések listája, ", "-el elválasztva, egy-egy ülés "(<sor>,<oszlop>) formátumú> on <film címe> in roomDto <terem neve> starting at <vetítés kezdetének ideje YYYY-MM-DD hh:mm formátumban> for <a foglalás ára> HUF
     ```
     * Minden már meglévő foglaláshoz létezik egy, a foglalást leíró sor a fenti formátumban.
     * A foglalásra vonatkozó szabályokról (pl. az ár kiszámítása) bővebben olvashatsz a következő szekciókban.
@@ -342,7 +342,7 @@ jegyet:
     ```
     Signed in with account 'sanyi'
     Your previous bookings are
-    Seats (5,5), (5,6) on Sátántangó in room Pedersoli starting at 2021-03-15 10:45 for 3000 HUF
+    Seats (5,5), (5,6) on Sátántangó in roomDto Pedersoli starting at 2021-03-15 10:45 for 3000 HUF
     ```
 * A parancs kimenete más esetekben a kettes jegyhez szükséges követelmények között van leírva.
 
@@ -366,7 +366,7 @@ book Sátántangó Pedersoli "2021-03-15 10:45" "5,5 5,6"
     ahol az ülőhely a listában megadottak közül az első olyan, amely nem foglalható
     * A megjelölt ülőhelyek valamelyike nem létezik az adott teremben. Ekkor a parancs kimenete
     ```
-    Seat <ülőhely> does not exist in this room
+    Seat <ülőhely> does not exist in this roomDto
     ```
     ahol az ülőhely a listában megadottak közül az első olyan, amely nem foglalható a hiba miatt.
 * Amennyiben a foglalás sikeres, a parancs kimenete a következő
@@ -428,7 +428,7 @@ Miután megtörtént, a teremben történő összes vetítés ára tartalmazza a
     ahol a vetítés történik csatolva van egy 500 Ft-s árkomponens, akkor a fenti foglalás ára
     2 * (500 Ft + 1500 Ft), tehát 4000 Ft
 ```
-attach price component to room <árkomponens neve> <terem neve>
+attach price component to roomDto <árkomponens neve> <terem neve>
 ```
 * A parancs adminisztrációs parancs, így csak bejelentkezett 
 adminisztrátor felhasználó számára elérhető.
@@ -438,7 +438,7 @@ adminisztrátor felhasználó számára elérhető.
 * A következő parancs lehetővé teszi egy létező árkomponens egy létező filmhez történő csatolását.
 Miután megtörtént, a film összes vetítése esetén az ár tartalmazza az árkomponenst.
 ```
-attach price component to movie <árkomponens neve> <film címe>
+attach price component to movieDto <árkomponens neve> <film címe>
 ```
 * A parancs adminisztrációs parancs, így csak bejelentkezett 
 adminisztrátor felhasználó számára elérhető.
@@ -448,7 +448,7 @@ adminisztrátor felhasználó számára elérhető.
 * A következő parancs lehetővé teszi egy létező árkomponens egy létező vetítéshez történő csatolását.
 Miután megtörtént, a vetítés ára tartalmazza az árkomponenst.
 ```
-attach price component to screening <árkomponens neve> <film címe> <terem neve> <vetítés kezdetének dátuma YYYY-MM-DD hh:mm formátumban>
+attach price component to screeningDto <árkomponens neve> <film címe> <terem neve> <vetítés kezdetének dátuma YYYY-MM-DD hh:mm formátumban>
 ```
 * A parancs adminisztrációs parancs, így csak bejelentkezett 
 adminisztrátor felhasználó számára elérhető.

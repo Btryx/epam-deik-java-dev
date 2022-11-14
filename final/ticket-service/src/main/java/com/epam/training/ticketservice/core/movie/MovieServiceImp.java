@@ -1,62 +1,65 @@
 package com.epam.training.ticketservice.core.movie;
 
-import com.epam.training.ticketservice.core.movie.model.Movie;
+import com.epam.training.ticketservice.core.movie.model.MovieDto;
+import com.epam.training.ticketservice.core.movie.persistence.Movie;
+import com.epam.training.ticketservice.core.movie.persistence.MovieRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class MovieServiceImp implements MovieService {
 
-    private List<Movie> movieList;
+    @Autowired
+    private MovieRepository movieRepository;
+
 
     @Override
-    public void initMovies() {
-        movieList = new LinkedList<>(List.of(
-                Movie.builder()
-                        .withTitle("IT")
-                        .withGenre("Horror")
-                        .withLength(125)
-                        .build(),
-                Movie.builder()
-                        .withTitle("Tangled")
-                        .withGenre("Animation")
-                        .withLength(95)
-                        .build()));
+    public void createMovie(MovieDto movieDto) {
+        Movie movie = new Movie(movieDto.getTitle(), movieDto.getGenre(), movieDto.getLength());
+        movieRepository.save(movie);
     }
 
     @Override
-    public void createMovie(Movie movie) {
-        movieList.add(movie);
+    public List<MovieDto> getMovieList() {
+        return movieRepository.findAll().stream()
+                .map(this::convertEntityToDto)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public List<Movie> getMovieList() {
-        return movieList;
+    public Optional<MovieDto> getMovieByTitle(String title) {
+        return Optional.ofNullable(convertEntityToDto(movieRepository.findByTitle(title)));
     }
 
     @Override
-    public Movie getMovieByTitle(String title) {
-        return movieList.stream()
-                .filter(movie -> movie.getTitle().equals(title))
-                .findFirst().orElse(null);
-    }
-
-    @Override
-    public void deleteMovie(Movie movie) {
-        movieList.remove(movie);
+    public void deleteMovie(MovieDto movieDto) {
+        Movie movie = new Movie(movieDto.getTitle(), movieDto.getGenre(), movieDto.getLength());
+        movieRepository.delete(movie);
     }
 
     @Override
     public void updateMovie(String title, String genre, int length) {
-        Movie movie = getMovieByTitle(title);
-        if (movie != null) {
-            movieList.remove(movie);
-            Movie newMovie = new Movie(title, genre, length);
-            movieList.add(newMovie);
+        Optional<MovieDto> movie = getMovieByTitle(title);
+        if (movie.isPresent()) {
+            MovieDto m = new MovieDto(movie.get().getTitle(),
+                    movie.get().getGenre(),
+                    movie.get().getLength());
+            deleteMovie(m);
+            MovieDto newMovieDto = new MovieDto(title, genre, length);
+            createMovie(newMovieDto);
         }
     }
 
+    private MovieDto convertEntityToDto(Movie movie) {
+        return MovieDto.builder()
+                .withTitle(movie.getTitle())
+                .withGenre(movie.getGenre())
+                .withLength(movie.getLength())
+                .build();
+    }
 }

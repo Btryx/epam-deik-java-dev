@@ -1,2 +1,8 @@
-package com.epam.training.ticketservice.core.movie.persistence;public interface MovieRepository {
+package com.epam.training.ticketservice.core.movie.persistence;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MovieRepository extends JpaRepository<Movie, String> {
+
+    Movie findByTitle(String title);
 }

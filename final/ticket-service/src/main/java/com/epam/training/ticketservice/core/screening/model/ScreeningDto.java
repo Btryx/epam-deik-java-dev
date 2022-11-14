@@ -1,17 +1,17 @@
 package com.epam.training.ticketservice.core.screening.model;
 
-import com.epam.training.ticketservice.core.movie.model.Movie;
-import com.epam.training.ticketservice.core.room.model.Room;
+import com.epam.training.ticketservice.core.movie.model.MovieDto;
+import com.epam.training.ticketservice.core.room.model.RoomDto;
 import lombok.Value;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Value
-public class Screening {
+public class ScreeningDto {
 
-    Movie movie;
-    Room room;
+    MovieDto movieDto;
+    RoomDto roomDto;
     Date time;
 
     @Override
@@ -20,7 +20,7 @@ public class Screening {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm");
         String strDate= formatter.format(time);
 
-        return movie + ", screened in room \"" + room.getName() + "\", at " + strDate;
+        return movieDto + ", screened in room \"" + roomDto.getName() + "\", at " + strDate;
     }
 
     public static Builder builder() {
@@ -28,17 +28,17 @@ public class Screening {
     }
 
     public static class Builder {
-        private Movie movie;
-        private Room room;
+        private MovieDto movieDto;
+        private RoomDto roomDto;
         private Date time;
 
-        public Builder withMovie(Movie movie) {
-            this.movie = movie;
+        public Builder withMovie(MovieDto movieDto) {
+            this.movieDto = movieDto;
             return this;
         }
 
-        public Builder withRoom(Room room) {
-            this.room = room;
+        public Builder withRoom(RoomDto roomDto) {
+            this.roomDto = roomDto;
             return this;
         }
 
@@ -47,8 +47,8 @@ public class Screening {
             return this;
         }
 
-        public Screening build() {
-            return new Screening(movie, room, time);
+        public ScreeningDto build() {
+            return new ScreeningDto(movieDto, roomDto, time);
         }
     }
 }
