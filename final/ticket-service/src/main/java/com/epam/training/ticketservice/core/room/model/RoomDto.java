@@ -12,11 +12,11 @@ public class RoomDto {
 
     @Override
     public String toString() {
-        return "\nRoom '"
-                 + name + "'" + " with "
-                 + rows * cols + " seats, "
-                 + rows + " rows and "
-                 + cols + " columns";
+        return "Room "
+                + name
+                + " with " + rows * cols + " seats, "
+                + rows + " rows"
+                + " and " + cols + " columns";
     }
 
     public static Builder builder() {

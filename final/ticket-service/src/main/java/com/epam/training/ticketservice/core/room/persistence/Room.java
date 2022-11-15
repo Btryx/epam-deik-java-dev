@@ -22,4 +22,13 @@ public class Room {
         this.rows = rows;
         this.cols = cols;
     }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "name='" + name + '\'' +
+                ", rows=" + rows +
+                ", cols=" + cols +
+                '}';
+    }
 }

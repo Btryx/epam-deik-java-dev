@@ -3,6 +3,8 @@ package com.epam.training.ticketservice.core.movie.model;
 
 import lombok.Value;
 
+import java.util.Objects;
+
 @Value
 public class MovieDto {
 
@@ -12,9 +14,29 @@ public class MovieDto {
 
     @Override
     public String toString() {
-        return   "\n" + title + " ("
-                 + genre + " "
-                 + length + " minutes)";
+        return title + " ("
+                + genre + ", "
+                + length + " minutes)";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        MovieDto movieDto = (MovieDto) o;
+
+        if (length != movieDto.length) return false;
+        if (!Objects.equals(title, movieDto.title)) return false;
+        return Objects.equals(genre, movieDto.genre);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = title != null ? title.hashCode() : 0;
+        result = 31 * result + (genre != null ? genre.hashCode() : 0);
+        result = 31 * result + length;
+        return result;
     }
 
     public static Builder builder() {

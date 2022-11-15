@@ -1,15 +1,14 @@
 package com.epam.training.ticketservice.core.room;
 
 import com.epam.training.ticketservice.core.movie.model.MovieDto;
-import com.epam.training.ticketservice.core.movie.persistence.Movie;
 import com.epam.training.ticketservice.core.room.model.RoomDto;
 import com.epam.training.ticketservice.core.room.persistence.Room;
 import com.epam.training.ticketservice.core.room.persistence.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -32,8 +31,8 @@ public class RoomServiceImp implements RoomService {
     }
 
     @Override
-    public RoomDto getRoomByName(String name) {
-        return convertEntityToDto(roomRepository.getById(name));
+    public Optional<RoomDto> getRoomByRoomName(String name) {
+        return Optional.ofNullable(convertEntityToDto(roomRepository.findByName(name)));
     }
 
     @Override
@@ -44,10 +43,15 @@ public class RoomServiceImp implements RoomService {
 
     @Override
     public void updateRoom(String name, int rows, int cols) {
-        RoomDto room = getRoomByName(name);
-        RoomDto newRoom = new RoomDto(name, rows, cols);
-        deleteRoom(room);
-        createRoom(newRoom);
+        Optional<RoomDto> room = getRoomByRoomName(name);
+        if (room.isPresent()) {
+            RoomDto r = new RoomDto(room.get().getName(),
+                    room.get().getRows(),
+                    room.get().getCols());
+            deleteRoom(r);
+            RoomDto newRoom = new RoomDto(name, rows, cols);
+            createRoom(newRoom);
+        }
     }
 
     private RoomDto convertEntityToDto(Room room) {

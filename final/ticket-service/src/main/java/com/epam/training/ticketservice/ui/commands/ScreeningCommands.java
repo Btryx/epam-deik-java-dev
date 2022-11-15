@@ -14,9 +14,8 @@ import org.springframework.shell.standard.ShellMethodAvailability;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @ShellComponent
 @AllArgsConstructor
@@ -32,15 +31,19 @@ public class ScreeningCommands {
     public String addScreening(String movieTitle, String roomName, String date) throws ParseException {
 
         Optional<MovieDto> movieDto = movieService.getMovieByTitle(movieTitle);
-        RoomDto roomDto = roomService.getRoomByName(roomName);
+        Optional<RoomDto> roomDto = roomService.getRoomByRoomName(roomName);
         Date convertedDate = convertStringToDate(date);
 
         if (movieDto.isEmpty()){
             return "Can't create screening, because movie does not exist";
         }
-        if (roomDto == null){
+        if (roomDto.isEmpty()){
             return "Can't create screening, because room does not exist";
         }
+        RoomDto room = new RoomDto(roomDto.get().getName(),
+                    roomDto.get().getRows(),
+                    roomDto.get().getCols());
+
 
         MovieDto movie = new MovieDto(movieDto.get().getTitle(),
                 movieDto.get().getGenre(),
@@ -52,10 +55,10 @@ public class ScreeningCommands {
         long endOfScreeningToBeCreated = cal.getTime().getTime();
         long startOfScreeningToBeCreated = convertedDate.getTime();
         String screeningCheck =
-                CheckScreeningOverlapping(startOfScreeningToBeCreated, endOfScreeningToBeCreated, roomDto);
+                CheckScreeningOverlapping(startOfScreeningToBeCreated, endOfScreeningToBeCreated, room);
 
         if(screeningCheck.equals("Screening created")){
-            ScreeningDto screeningDto = new ScreeningDto(movie, roomDto, convertedDate);
+            ScreeningDto screeningDto = new ScreeningDto(movie, room, convertedDate);
             screeningService.createScreening(screeningDto);
             return "New screening created";
         }
@@ -74,15 +77,27 @@ public class ScreeningCommands {
                     movieDto.get().getGenre(),
                     movieDto.get().getLength());
 
-            RoomDto roomDto = roomService.getRoomByName(roomName);
-            ScreeningDto screeningDto = new ScreeningDto(m, roomDto, convertedDate);
-            if(screeningService.getScreeningList().contains(screeningDto)){
-                screeningService.deleteScreening(screeningDto);
-                return "Deleted screening";
+            Optional<RoomDto> roomDto = roomService.getRoomByRoomName(roomName);
+            if(roomDto.isPresent()){
+                RoomDto room = new RoomDto(roomDto.get().getName(),
+                        roomDto.get().getRows(),
+                        roomDto.get().getCols());
+                ScreeningDto screeningDto = new ScreeningDto(m, room, convertedDate);
+                if(screeningService.getScreeningList().contains(screeningDto)){
+                    screeningService.deleteScreening(screeningDto);
+                    return "Deleted screening";
+                }
             }
+
         }
 
         return "Can't delete screening, because it does not exist";
+    }
+
+    public String screeningListToString(List<ScreeningDto> list) {
+        return list.stream()
+                .map(Objects::toString)
+                .collect(Collectors.joining(System.lineSeparator()));
     }
 
     @ShellMethod(key = "list screenings", value = "List all screenings")
@@ -92,7 +107,7 @@ public class ScreeningCommands {
             return "There are no screenings";
         }
 
-        return screeningService.getScreeningList().toString();
+        return screeningListToString(screeningService.getScreeningList());
     }
 
     public Date convertStringToDate(String stringDate) throws ParseException {
@@ -126,7 +141,7 @@ public class ScreeningCommands {
                         endOfScreening >= start ||
                         startOfScreening <= end &&
                                 endOfScreening >= end
-                ) return "This would start in the break period after another screening in this room.";
+                ) return "This would start in the break period after another screening in this room";
             }
             return "Screening created";
         }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="17" failures="14" name="com.training.epam.ticketservice.at.TestExecutor" time="119.82" errors="0" skipped="0">
+<testsuite tests="17" failures="0" name="com.training.epam.ticketservice.at.TestExecutor" time="91.74" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2021.3.3"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -44,7 +44,7 @@
     <property name="java.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2021.3.2\plugins\maven\lib\maven3\boot\plexus-classworlds-2.6.0.jar;C:\Program Files\JetBrains\IntelliJ IDEA 2021.3.2\plugins\maven\lib\maven3\boot\plexus-classworlds.license"/>
     <property name="java.vm.specification.version" value="17"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2021.3.3 clean verify"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2021.3.3 clean verify -P requirements-grade2"/>
     <property name="java.home" value="C:\Users\olahb\.jdks\corretto-17.0.4.1"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -61,175 +61,21 @@
     <property name="java.vendor.version" value="Corretto-17.0.4.9.1"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="allow creating accounts and logging in" name="the admin account exists by default and can be logged in with the correct password" time="6.447">
-    <failure message="
-Expected: &quot;Signed in with privileged account &apos;admin&apos;&quot;
-     but: was &quot;Signed in with privileged account admin&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
-Expected: &quot;Signed in with privileged account &apos;admin&apos;&quot;
-     but: was &quot;Signed in with privileged account admin&quot;
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
-	at ✽.the next line of the output is &quot;Signed in with privileged account &apos;admin&apos;&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/accounts.feature:11)
-</failure>
-  </testcase>
-  <testcase classname="allow creating accounts and logging in" name="the admin account can be signed out" time="6.218"/>
-  <testcase classname="allow creating accounts and logging in" name="the admin account can not be logged in with incorrect password" time="6.373"/>
-  <testcase classname="allows creating movie descriptions" name="an admin user can create and list movies" time="6.352">
-    <failure message="
-Expected: &quot;Sátántangó (drama, 450 minutes)&quot;
-     but: was &quot;[&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
-Expected: &quot;Sátántangó (drama, 450 minutes)&quot;
-     but: was &quot;[&quot;
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
-	at ✽.the next line of the output is &quot;Sátántangó (drama, 450 minutes)&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/movies.feature:11)
-</failure>
-  </testcase>
-  <testcase classname="allows creating movie descriptions" name="an admin user can update a movie" time="6.744">
-    <failure message="
-Expected: &quot;Sátántangó (drama, 450 minutes)&quot;
-     but: was &quot;[&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
-Expected: &quot;Sátántangó (drama, 450 minutes)&quot;
-     but: was &quot;[&quot;
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
-	at ✽.the next line of the output is &quot;Sátántangó (drama, 450 minutes)&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/movies.feature:19)
-</failure>
-  </testcase>
-  <testcase classname="allows creating movie descriptions" name="an admin user can delete a movie" time="6.562">
-    <failure message="
-Expected: &quot;There are no movies at the moment&quot;
-     but: was &quot;[&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
-Expected: &quot;There are no movies at the moment&quot;
-     but: was &quot;[&quot;
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
-	at ✽.the next line of the output is &quot;There are no movies at the moment&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/movies.feature:27)
-</failure>
-  </testcase>
-  <testcase classname="allows creating movie descriptions" name="an unauthenticated user can list movies" time="6.785">
-    <failure message="
-Expected: &quot;Sátántangó (drama, 450 minutes)&quot;
-     but: was &quot;[&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
-Expected: &quot;Sátántangó (drama, 450 minutes)&quot;
-     but: was &quot;[&quot;
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
-	at ✽.the next line of the output is &quot;Sátántangó (drama, 450 minutes)&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/movies.feature:35)
-</failure>
-  </testcase>
-  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can create and list rooms" time="6.37">
-    <failure message="
-Expected: &quot;Room Pedersoli with 200 seats, 20 rows and 10 columns&quot;
-     but: was &quot;[&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
-Expected: &quot;Room Pedersoli with 200 seats, 20 rows and 10 columns&quot;
-     but: was &quot;[&quot;
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
-	at ✽.the next line of the output is &quot;Room Pedersoli with 200 seats, 20 rows and 10 columns&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/rooms.feature:12)
-</failure>
-  </testcase>
-  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can update a room" time="6.494">
-    <failure message="
-Expected: &quot;Room Pedersoli with 100 seats, 10 rows and 10 columns&quot;
-     but: was &quot;[&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
-Expected: &quot;Room Pedersoli with 100 seats, 10 rows and 10 columns&quot;
-     but: was &quot;[&quot;
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
-	at ✽.the next line of the output is &quot;Room Pedersoli with 100 seats, 10 rows and 10 columns&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/rooms.feature:20)
-</failure>
-  </testcase>
-  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can delete a room" time="6.198">
-    <failure message="
-Expected: &quot;There are no rooms at the moment&quot;
-     but: was &quot;[&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
-Expected: &quot;There are no rooms at the moment&quot;
-     but: was &quot;[&quot;
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
-	at ✽.the next line of the output is &quot;There are no rooms at the moment&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/rooms.feature:28)
-</failure>
-  </testcase>
-  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an unauthenticated user can list rooms" time="6.608">
-    <failure message="
-Expected: &quot;Room Pedersoli with 200 seats, 20 rows and 10 columns&quot;
-     but: was &quot;[&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
-Expected: &quot;Room Pedersoli with 200 seats, 20 rows and 10 columns&quot;
-     but: was &quot;[&quot;
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
-	at ✽.the next line of the output is &quot;Room Pedersoli with 200 seats, 20 rows and 10 columns&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/rooms.feature:36)
-</failure>
-  </testcase>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin user can create and query screenings" time="7.997">
-    <failure message="
-Expected: &quot;Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 10:45&quot;
-     but: was &quot;There are no screenings&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
-Expected: &quot;Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 10:45&quot;
-     but: was &quot;There are no screenings&quot;
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
-	at ✽.the next line of the output is &quot;Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 10:45&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:18)
-</failure>
-  </testcase>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin can not create overlapping screenings in the same room" time="7.93">
-    <failure message="
-Expected: &quot;There is an overlapping screening&quot;
-     but: was &quot;&amp;#27;[31mcould not initialize proxy [com.epam.training.ticketservice.core.room.persistence.Room#Pedersoli] - no Session&amp;#27;[0m&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
-Expected: &quot;There is an overlapping screening&quot;
-     but: was &quot;&amp;#27;[31mcould not initialize proxy [com.epam.training.ticketservice.core.room.persistence.Room#Pedersoli] - no Session&amp;#27;[0m&quot;
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
-	at ✽.the next line of the output is &quot;There is an overlapping screening&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:26)
-</failure>
-  </testcase>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin can create overlapping screenings in different rooms" time="8.181">
-    <failure message="
-Expected: &quot;Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 10:45&quot;
-     but: was &quot;There are no screenings&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
-Expected: &quot;Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 10:45&quot;
-     but: was &quot;There are no screenings&quot;
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
-	at ✽.the next line of the output is &quot;Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 10:45&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:36)
-</failure>
-  </testcase>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin can not create screenings during a 10 minute long breaks after another screening in the same room" time="8.173">
-    <failure message="
-Expected: &quot;This would start in the break period after another screening in this room&quot;
-     but: was &quot;&amp;#27;[31mcould not initialize proxy [com.epam.training.ticketservice.core.room.persistence.Room#Pedersoli] - no Session&amp;#27;[0m&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
-Expected: &quot;This would start in the break period after another screening in this room&quot;
-     but: was &quot;&amp;#27;[31mcould not initialize proxy [com.epam.training.ticketservice.core.room.persistence.Room#Pedersoli] - no Session&amp;#27;[0m&quot;
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
-	at ✽.the next line of the output is &quot;This would start in the break period after another screening in this room&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:44)
-</failure>
-  </testcase>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin can create screenings even if there is a break after a screening in a different room" time="8.339">
-    <failure message="
-Expected: &quot;Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 11:00&quot;
-     but: was &quot;There are no screenings&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
-Expected: &quot;Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 11:00&quot;
-     but: was &quot;There are no screenings&quot;
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
-	at ✽.the next line of the output is &quot;Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 11:00&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:54)
-</failure>
-  </testcase>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin user can delete screenings" time="8.049"/>
+  <testcase classname="allow creating accounts and logging in" name="the admin account exists by default and can be logged in with the correct password" time="4.731"/>
+  <testcase classname="allow creating accounts and logging in" name="the admin account can be signed out" time="4.712"/>
+  <testcase classname="allow creating accounts and logging in" name="the admin account can not be logged in with incorrect password" time="4.513"/>
+  <testcase classname="allows creating movie descriptions" name="an admin user can create and list movies" time="4.698"/>
+  <testcase classname="allows creating movie descriptions" name="an admin user can update a movie" time="4.986"/>
+  <testcase classname="allows creating movie descriptions" name="an admin user can delete a movie" time="4.94"/>
+  <testcase classname="allows creating movie descriptions" name="an unauthenticated user can list movies" time="4.901"/>
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can create and list rooms" time="4.579"/>
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can update a room" time="4.872"/>
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can delete a room" time="4.966"/>
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an unauthenticated user can list rooms" time="4.827"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin user can create and query screenings" time="6.445"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can not create overlapping screenings in the same room" time="6.522"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can create overlapping screenings in different rooms" time="6.537"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can not create screenings during a 10 minute long breaks after another screening in the same room" time="6.446"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can create screenings even if there is a break after a screening in a different room" time="6.537"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin user can delete screenings" time="6.528"/>
 </testsuite>

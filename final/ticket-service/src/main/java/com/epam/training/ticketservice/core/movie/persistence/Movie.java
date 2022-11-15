@@ -22,4 +22,13 @@ public class Movie {
         this.genre = genre;
         this.length = length;
     }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "title='" + title + '\'' +
+                ", genre='" + genre + '\'' +
+                ", length=" + length +
+                '}';
+    }
 }

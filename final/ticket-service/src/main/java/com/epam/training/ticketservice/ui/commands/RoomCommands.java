@@ -1,7 +1,9 @@
 package com.epam.training.ticketservice.ui.commands;
 
+import com.epam.training.ticketservice.core.movie.model.MovieDto;
 import com.epam.training.ticketservice.core.room.RoomService;
 import com.epam.training.ticketservice.core.room.model.RoomDto;
+import com.epam.training.ticketservice.core.room.persistence.Room;
 import com.epam.training.ticketservice.core.user.UserDto;
 import com.epam.training.ticketservice.core.user.UserService;
 import com.epam.training.ticketservice.core.user.persistence.User;
@@ -11,7 +13,10 @@ import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 import org.springframework.shell.standard.ShellMethodAvailability;
 
+import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 
 @ShellComponent
@@ -32,7 +37,7 @@ public class RoomCommands {
     @ShellMethodAvailability("isAvailable")
     @ShellMethod(key = "update room", value = "Update existing room")
     public String editRoom(String name, int rows, int cols) {
-        if (roomService.getRoomByName(name) != null) {
+        if (roomService.getRoomByRoomName(name).isPresent()) {
             roomService.updateRoom(name, rows, cols);
             return "Room with name " + name + " updated.";
         }
@@ -42,21 +47,30 @@ public class RoomCommands {
     @ShellMethodAvailability("isAvailable")
     @ShellMethod(key = "delete room", value = "Delete existing room")
     public String deleteRoom(String name) {
-        RoomDto roomDto = roomService.getRoomByName(name);
-        if (roomDto != null) {
-            roomService.deleteRoom(roomDto);
+        Optional<RoomDto> roomDto = roomService.getRoomByRoomName(name);
+        if (roomDto.isPresent()) {
+            RoomDto room = new RoomDto(roomDto.get().getName(),
+                    roomDto.get().getRows(),
+                    roomDto.get().getCols());
+            roomService.deleteRoom(room);
             return "Room with name " + name + " deleted.";
         }
         return "No room with name " + name;
     }
 
+    public String roomListToString(List<RoomDto> list) {
+        return list.stream()
+                .map(Objects::toString)
+                .collect(Collectors.joining(System.lineSeparator()));
+    }
+
     @ShellMethod(key = "list rooms", value = "List all rooms")
     public String roomList() {
-        if (roomService.getRoomList().isEmpty()) {
+        List<RoomDto> rooms = roomService.getRoomList();
+        if (rooms.isEmpty()) {
             return "There are no rooms at the moment";
-        } else {
-            return roomService.getRoomList().toString();
         }
+        return roomListToString(rooms);
     }
 
     private Availability isAvailable() {

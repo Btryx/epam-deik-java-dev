@@ -12,7 +12,10 @@ import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 import org.springframework.shell.standard.ShellMethodAvailability;
 
+import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @ShellComponent
 @AllArgsConstructor
@@ -51,13 +54,19 @@ public class MovieCommands {
         return "No movie with title " + title;
     }
 
+    public String movieListToString(List<MovieDto> list) {
+        return list.stream()
+                .map(Objects::toString)
+                .collect(Collectors.joining(System.lineSeparator()));
+    }
+
     @ShellMethod(key = "list movies", value = "List all movies")
     public String movieList() {
-        if (movieService.getMovieList().isEmpty()) {
+        List<MovieDto> movies = movieService.getMovieList();
+        if (movies.isEmpty()) {
             return "There are no movies at the moment";
-        } else {
-            return movieService.getMovieList().toString();
         }
+        return movieListToString(movies);
     }
 
     private Availability isAvailable() {

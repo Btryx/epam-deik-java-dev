@@ -3,6 +3,7 @@ package com.epam.training.ticketservice.core.room;
 import com.epam.training.ticketservice.core.room.model.RoomDto;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface RoomService {
 
@@ -10,7 +11,7 @@ public interface RoomService {
 
     List<RoomDto> getRoomList();
 
-    RoomDto getRoomByName(String name);
+    Optional<RoomDto> getRoomByRoomName(String name);
 
     void deleteRoom(RoomDto roomDto);
 

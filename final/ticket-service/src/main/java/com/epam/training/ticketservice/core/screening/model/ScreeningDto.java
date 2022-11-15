@@ -17,10 +17,10 @@ public class ScreeningDto {
     @Override
     public String toString() {
 
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm");
-        String strDate= formatter.format(time);
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        String strDate = formatter.format(time);
 
-        return movieDto + ", screened in room \"" + roomDto.getName() + "\", at " + strDate;
+        return movieDto + ", screened in room " + roomDto.getName() + ", at " + strDate;
     }
 
     public static Builder builder() {
