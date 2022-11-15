@@ -42,7 +42,7 @@ public class UserCommands {
             return "Login failed due to incorrect credentials";
         }
 
-        return  "Signed in with privileged account " + username;
+        return "Signed in with privileged account '" + user.get().getUsername() + "'";
     }
 
     @ShellMethod(key = "describe account", value = "Get user information")
@@ -52,7 +52,7 @@ public class UserCommands {
             return "You are not signed in";
         }
         if(user.get().getRole() == User.Role.ADMIN){
-            return "Signed in with privileged account " + user.get().getUsername();
+            return "Signed in with privileged account '" + user.get().getUsername() + "'";
         }
         return "Signed in with account " + user.get().getUsername();
     }

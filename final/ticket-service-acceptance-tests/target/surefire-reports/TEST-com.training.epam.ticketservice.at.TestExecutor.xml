@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="17" failures="17" name="com.training.epam.ticketservice.at.TestExecutor" time="3.008" errors="0" skipped="0">
+<testsuite tests="17" failures="14" name="com.training.epam.ticketservice.at.TestExecutor" time="119.82" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2021.3.3"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
-    <property name="java.vm.version" value="11.0.11+9"/>
-    <property name="sun.boot.library.path" value="C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot\bin"/>
-    <property name="maven.multiModuleProjectDirectory" value="C:\Users\olahb\Desktop\Egyetem\5.félév\java\saját fork\epam-deik-java-dev\final\ticket-service-acceptance-tests"/>
-    <property name="java.vm.vendor" value="AdoptOpenJDK"/>
-    <property name="java.vendor.url" value="https://adoptopenjdk.net/"/>
+    <property name="java.vm.version" value="17.0.4.1+9-LTS"/>
+    <property name="sun.boot.library.path" value="C:\Users\olahb\.jdks\corretto-17.0.4.1\bin"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\olahb\Desktop\Egyetem\java\fork\epam-deik-java-dev\final"/>
+    <property name="java.vm.vendor" value="Amazon.com Inc."/>
+    <property name="java.vendor.url" value="https://aws.amazon.com/corretto/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
     <property name="path.separator" value=";"/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
@@ -16,10 +16,9 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\olahb\Desktop\Egyetem\5.félév\java\saját fork\epam-deik-java-dev\final\ticket-service-acceptance-tests"/>
+    <property name="user.dir" value="C:\Users\olahb\Desktop\Egyetem\java\fork\epam-deik-java-dev\final"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
-    <property name="java.runtime.version" value="11.0.11+9"/>
-    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.runtime.version" value="17.0.4.1+9-LTS"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.io.tmpdir" value="C:\Users\olahb\AppData\Local\Temp\"/>
     <property name="line.separator" value="
@@ -30,174 +29,207 @@
     <property name="maven.ext.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2021.3.2\plugins\maven\lib\maven-event-listener.jar"/>
     <property name="classworlds.conf" value="C:\Program Files\JetBrains\IntelliJ IDEA 2021.3.2\plugins\maven\lib\maven3\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\olahb\.sdkman\candidates\java\17.0.2-open\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Users\olahb\Downloads\yes\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\Program Files\MATLAB\R2021a\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files\GitHub CLI\;C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot\bin;C:\Program Files\apache-maven-3.8.5-bin\apache-maven-3.8.5\bin;C:\Program Files\Git\cmd;C:\Program Files\PuTTY\;C:\Program Files\opencv\build\x64\vc15\bin\;C:\Users\olahb\AppData\Local\Microsoft\WindowsApps;C:\Users\olahb\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\olahb\.dotnet\tools;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.1\bin;;C:\Users\olahb\AppData\Local\GitHubDesktop\bin;C:\Users\olahb\AppData\Local\Pandoc\;C:\Users\olahb\AppData\Roaming\npm;."/>
+    <property name="java.library.path" value="C:\Users\olahb\.jdks\corretto-17.0.4.1\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\olahb\.sdkman\candidates\java\17.0.2-open\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Users\olahb\Downloads\yes\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\Program Files\MATLAB\R2021a\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files\GitHub CLI\;C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot\bin;C:\Program Files\apache-maven-3.8.5-bin\apache-maven-3.8.5\bin;C:\Program Files\Git\cmd;C:\Program Files\PuTTY\;C:\Program Files\opencv\build\x64\vc15\bin\;C:\Users\olahb\AppData\Local\Microsoft\WindowsApps;C:\Users\olahb\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\olahb\.dotnet\tools;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.1\bin;;C:\Users\olahb\AppData\Local\GitHubDesktop\bin;C:\Users\olahb\AppData\Local\Pandoc\;C:\Users\olahb\AppData\Roaming\npm;."/>
     <property name="maven.conf" value="C:\Program Files\JetBrains\IntelliJ IDEA 2021.3.2\plugins\maven\lib\maven3/conf"/>
     <property name="jdk.debug" value="release"/>
-    <property name="java.class.version" value="55.0"/>
+    <property name="java.class.version" value="61.0"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="os.version" value="10.0"/>
     <property name="user.home" value="C:\Users\olahb"/>
-    <property name="user.timezone" value="Europe/Prague"/>
-    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="user.timezone" value="Europe/Budapest"/>
     <property name="file.encoding" value="UTF-8"/>
-    <property name="java.specification.version" value="11"/>
+    <property name="java.specification.version" value="17"/>
     <property name="user.name" value="olahb"/>
     <property name="java.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2021.3.2\plugins\maven\lib\maven3\boot\plexus-classworlds-2.6.0.jar;C:\Program Files\JetBrains\IntelliJ IDEA 2021.3.2\plugins\maven\lib\maven3\boot\plexus-classworlds.license"/>
-    <property name="java.vm.specification.version" value="11"/>
+    <property name="java.vm.specification.version" value="17"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2021.3.3 install"/>
-    <property name="java.home" value="C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2021.3.3 clean verify"/>
+    <property name="java.home" value="C:\Users\olahb\.jdks\corretto-17.0.4.1"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
-    <property name="java.vm.info" value="mixed mode"/>
-    <property name="java.version" value="11.0.11"/>
-    <property name="java.vendor" value="AdoptOpenJDK"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.version" value="17.0.4.1"/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Amazon.com Inc."/>
     <property name="maven.home" value="C:\Program Files\JetBrains\IntelliJ IDEA 2021.3.2\plugins\maven\lib\maven3"/>
     <property name="file.separator" value="\"/>
-    <property name="java.version.date" value="2021-04-20"/>
-    <property name="java.vendor.url.bug" value="https://github.com/AdoptOpenJDK/openjdk-support/issues"/>
+    <property name="java.version.date" value="2022-08-12"/>
+    <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-17/issues/"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="java.vendor.version" value="AdoptOpenJDK-11.0.11+9"/>
-    <property name="sun.desktop" value="windows"/>
+    <property name="java.vendor.version" value="Corretto-17.0.4.9.1"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="allow creating accounts and logging in" name="the admin account exists by default and can be logged in with the correct password" time="0.335">
-    <failure message="The service is not running." type="java.lang.AssertionError">java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/accounts.feature:4)
+  <testcase classname="allow creating accounts and logging in" name="the admin account exists by default and can be logged in with the correct password" time="6.447">
+    <failure message="
+Expected: &quot;Signed in with privileged account &apos;admin&apos;&quot;
+     but: was &quot;Signed in with privileged account admin&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
+Expected: &quot;Signed in with privileged account &apos;admin&apos;&quot;
+     but: was &quot;Signed in with privileged account admin&quot;
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is &quot;Signed in with privileged account &apos;admin&apos;&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/accounts.feature:11)
 </failure>
   </testcase>
-  <testcase classname="allow creating accounts and logging in" name="the admin account can be signed out" time="0.169">
-    <failure message="The service is not running." type="java.lang.AssertionError">java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/accounts.feature:4)
+  <testcase classname="allow creating accounts and logging in" name="the admin account can be signed out" time="6.218"/>
+  <testcase classname="allow creating accounts and logging in" name="the admin account can not be logged in with incorrect password" time="6.373"/>
+  <testcase classname="allows creating movie descriptions" name="an admin user can create and list movies" time="6.352">
+    <failure message="
+Expected: &quot;Sátántangó (drama, 450 minutes)&quot;
+     but: was &quot;[&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
+Expected: &quot;Sátántangó (drama, 450 minutes)&quot;
+     but: was &quot;[&quot;
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is &quot;Sátántangó (drama, 450 minutes)&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/movies.feature:11)
 </failure>
   </testcase>
-  <testcase classname="allow creating accounts and logging in" name="the admin account can not be logged in with incorrect password" time="0.158">
-    <failure message="The service is not running." type="java.lang.AssertionError">java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/accounts.feature:4)
+  <testcase classname="allows creating movie descriptions" name="an admin user can update a movie" time="6.744">
+    <failure message="
+Expected: &quot;Sátántangó (drama, 450 minutes)&quot;
+     but: was &quot;[&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
+Expected: &quot;Sátántangó (drama, 450 minutes)&quot;
+     but: was &quot;[&quot;
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is &quot;Sátántangó (drama, 450 minutes)&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/movies.feature:19)
 </failure>
   </testcase>
-  <testcase classname="allows creating movie descriptions" name="an admin user can create and list movies" time="0.171">
-    <failure message="The service is not running." type="java.lang.AssertionError">java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/movies.feature:3)
+  <testcase classname="allows creating movie descriptions" name="an admin user can delete a movie" time="6.562">
+    <failure message="
+Expected: &quot;There are no movies at the moment&quot;
+     but: was &quot;[&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
+Expected: &quot;There are no movies at the moment&quot;
+     but: was &quot;[&quot;
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is &quot;There are no movies at the moment&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/movies.feature:27)
 </failure>
   </testcase>
-  <testcase classname="allows creating movie descriptions" name="an admin user can update a movie" time="0.157">
-    <failure message="The service is not running." type="java.lang.AssertionError">java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/movies.feature:3)
+  <testcase classname="allows creating movie descriptions" name="an unauthenticated user can list movies" time="6.785">
+    <failure message="
+Expected: &quot;Sátántangó (drama, 450 minutes)&quot;
+     but: was &quot;[&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
+Expected: &quot;Sátántangó (drama, 450 minutes)&quot;
+     but: was &quot;[&quot;
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is &quot;Sátántangó (drama, 450 minutes)&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/movies.feature:35)
 </failure>
   </testcase>
-  <testcase classname="allows creating movie descriptions" name="an admin user can delete a movie" time="0.168">
-    <failure message="The service is not running." type="java.lang.AssertionError">java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/movies.feature:3)
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can create and list rooms" time="6.37">
+    <failure message="
+Expected: &quot;Room Pedersoli with 200 seats, 20 rows and 10 columns&quot;
+     but: was &quot;[&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
+Expected: &quot;Room Pedersoli with 200 seats, 20 rows and 10 columns&quot;
+     but: was &quot;[&quot;
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is &quot;Room Pedersoli with 200 seats, 20 rows and 10 columns&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/rooms.feature:12)
 </failure>
   </testcase>
-  <testcase classname="allows creating movie descriptions" name="an unauthenticated user can list movies" time="0.17">
-    <failure message="The service is not running." type="java.lang.AssertionError">java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/movies.feature:3)
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can update a room" time="6.494">
+    <failure message="
+Expected: &quot;Room Pedersoli with 100 seats, 10 rows and 10 columns&quot;
+     but: was &quot;[&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
+Expected: &quot;Room Pedersoli with 100 seats, 10 rows and 10 columns&quot;
+     but: was &quot;[&quot;
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is &quot;Room Pedersoli with 100 seats, 10 rows and 10 columns&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/rooms.feature:20)
 </failure>
   </testcase>
-  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can create and list rooms" time="0.169">
-    <failure message="The service is not running." type="java.lang.AssertionError">java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/rooms.feature:4)
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can delete a room" time="6.198">
+    <failure message="
+Expected: &quot;There are no rooms at the moment&quot;
+     but: was &quot;[&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
+Expected: &quot;There are no rooms at the moment&quot;
+     but: was &quot;[&quot;
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is &quot;There are no rooms at the moment&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/rooms.feature:28)
 </failure>
   </testcase>
-  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can update a room" time="0.158">
-    <failure message="The service is not running." type="java.lang.AssertionError">java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/rooms.feature:4)
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an unauthenticated user can list rooms" time="6.608">
+    <failure message="
+Expected: &quot;Room Pedersoli with 200 seats, 20 rows and 10 columns&quot;
+     but: was &quot;[&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
+Expected: &quot;Room Pedersoli with 200 seats, 20 rows and 10 columns&quot;
+     but: was &quot;[&quot;
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is &quot;Room Pedersoli with 200 seats, 20 rows and 10 columns&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/rooms.feature:36)
 </failure>
   </testcase>
-  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can delete a room" time="0.171">
-    <failure message="The service is not running." type="java.lang.AssertionError">java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/rooms.feature:4)
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin user can create and query screenings" time="7.997">
+    <failure message="
+Expected: &quot;Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 10:45&quot;
+     but: was &quot;There are no screenings&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
+Expected: &quot;Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 10:45&quot;
+     but: was &quot;There are no screenings&quot;
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is &quot;Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 10:45&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:18)
 </failure>
   </testcase>
-  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an unauthenticated user can list rooms" time="0.17">
-    <failure message="The service is not running." type="java.lang.AssertionError">java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/rooms.feature:4)
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can not create overlapping screenings in the same room" time="7.93">
+    <failure message="
+Expected: &quot;There is an overlapping screening&quot;
+     but: was &quot;&amp;#27;[31mcould not initialize proxy [com.epam.training.ticketservice.core.room.persistence.Room#Pedersoli] - no Session&amp;#27;[0m&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
+Expected: &quot;There is an overlapping screening&quot;
+     but: was &quot;&amp;#27;[31mcould not initialize proxy [com.epam.training.ticketservice.core.room.persistence.Room#Pedersoli] - no Session&amp;#27;[0m&quot;
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is &quot;There is an overlapping screening&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:26)
 </failure>
   </testcase>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin user can create and query screenings" time="0.157">
-    <failure message="The service is not running." type="java.lang.AssertionError">java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:3)
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can create overlapping screenings in different rooms" time="8.181">
+    <failure message="
+Expected: &quot;Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 10:45&quot;
+     but: was &quot;There are no screenings&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
+Expected: &quot;Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 10:45&quot;
+     but: was &quot;There are no screenings&quot;
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is &quot;Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 10:45&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:36)
 </failure>
   </testcase>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin can not create overlapping screenings in the same room" time="0.174">
-    <failure message="The service is not running." type="java.lang.AssertionError">java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:3)
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can not create screenings during a 10 minute long breaks after another screening in the same room" time="8.173">
+    <failure message="
+Expected: &quot;This would start in the break period after another screening in this room&quot;
+     but: was &quot;&amp;#27;[31mcould not initialize proxy [com.epam.training.ticketservice.core.room.persistence.Room#Pedersoli] - no Session&amp;#27;[0m&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
+Expected: &quot;This would start in the break period after another screening in this room&quot;
+     but: was &quot;&amp;#27;[31mcould not initialize proxy [com.epam.training.ticketservice.core.room.persistence.Room#Pedersoli] - no Session&amp;#27;[0m&quot;
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is &quot;This would start in the break period after another screening in this room&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:44)
 </failure>
   </testcase>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin can create overlapping screenings in different rooms" time="0.171">
-    <failure message="The service is not running." type="java.lang.AssertionError">java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:3)
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can create screenings even if there is a break after a screening in a different room" time="8.339">
+    <failure message="
+Expected: &quot;Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 11:00&quot;
+     but: was &quot;There are no screenings&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
+Expected: &quot;Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 11:00&quot;
+     but: was &quot;There are no screenings&quot;
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is &quot;Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 11:00&quot;(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:54)
 </failure>
   </testcase>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin can not create screenings during a 10 minute long breaks after another screening in the same room" time="0.169">
-    <failure message="The service is not running." type="java.lang.AssertionError">java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:3)
-</failure>
-  </testcase>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin can create screenings even if there is a break after a screening in a different room" time="0.17">
-    <failure message="The service is not running." type="java.lang.AssertionError">java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:3)
-</failure>
-  </testcase>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin user can delete screenings" time="0.171">
-    <failure message="The service is not running." type="java.lang.AssertionError">java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:3)
-</failure>
-  </testcase>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin user can delete screenings" time="8.049"/>
 </testsuite>

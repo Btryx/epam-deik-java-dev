@@ -1,123 +1,130 @@
 -------------------------------------------------------------------------------
 Test set: com.training.epam.ticketservice.at.TestExecutor
 -------------------------------------------------------------------------------
-Tests run: 17, Failures: 17, Errors: 0, Skipped: 0, Time elapsed: 3.624 sec <<< FAILURE!
-the admin account exists by default and can be logged in with the correct password(allow creating accounts and logging in)  Time elapsed: 0.335 sec  <<< FAILURE!
-java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/accounts.feature:4)
+Tests run: 17, Failures: 14, Errors: 0, Skipped: 0, Time elapsed: 120.358 sec <<< FAILURE!
+the admin account exists by default and can be logged in with the correct password(allow creating accounts and logging in)  Time elapsed: 6.447 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Expected: "Signed in with privileged account 'admin'"
+     but: was "Signed in with privileged account admin"
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is "Signed in with privileged account 'admin'"(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/accounts.feature:11)
 
-the admin account can be signed out(allow creating accounts and logging in)  Time elapsed: 0.169 sec  <<< FAILURE!
-java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/accounts.feature:4)
+an admin user can create and list movies(allows creating movie descriptions)  Time elapsed: 6.352 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Expected: "Sátántangó (drama, 450 minutes)"
+     but: was "["
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is "Sátántangó (drama, 450 minutes)"(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/movies.feature:11)
 
-the admin account can not be logged in with incorrect password(allow creating accounts and logging in)  Time elapsed: 0.158 sec  <<< FAILURE!
-java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/accounts.feature:4)
+an admin user can update a movie(allows creating movie descriptions)  Time elapsed: 6.744 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Expected: "Sátántangó (drama, 450 minutes)"
+     but: was "["
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is "Sátántangó (drama, 450 minutes)"(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/movies.feature:19)
 
-an admin user can create and list movies(allows creating movie descriptions)  Time elapsed: 0.171 sec  <<< FAILURE!
-java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/movies.feature:3)
+an admin user can delete a movie(allows creating movie descriptions)  Time elapsed: 6.562 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Expected: "There are no movies at the moment"
+     but: was "["
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is "There are no movies at the moment"(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/movies.feature:27)
 
-an admin user can update a movie(allows creating movie descriptions)  Time elapsed: 0.157 sec  <<< FAILURE!
-java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/movies.feature:3)
+an unauthenticated user can list movies(allows creating movie descriptions)  Time elapsed: 6.785 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Expected: "Sátántangó (drama, 450 minutes)"
+     but: was "["
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is "Sátántangó (drama, 450 minutes)"(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/movies.feature:35)
 
-an admin user can delete a movie(allows creating movie descriptions)  Time elapsed: 0.168 sec  <<< FAILURE!
-java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/movies.feature:3)
+an admin user can create and list rooms(allow creating, reading, updating and deleting rooms where the screenings will happen)  Time elapsed: 6.37 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Expected: "Room Pedersoli with 200 seats, 20 rows and 10 columns"
+     but: was "["
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is "Room Pedersoli with 200 seats, 20 rows and 10 columns"(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/rooms.feature:12)
 
-an unauthenticated user can list movies(allows creating movie descriptions)  Time elapsed: 0.17 sec  <<< FAILURE!
-java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/movies.feature:3)
+an admin user can update a room(allow creating, reading, updating and deleting rooms where the screenings will happen)  Time elapsed: 6.494 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Expected: "Room Pedersoli with 100 seats, 10 rows and 10 columns"
+     but: was "["
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is "Room Pedersoli with 100 seats, 10 rows and 10 columns"(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/rooms.feature:20)
 
-an admin user can create and list rooms(allow creating, reading, updating and deleting rooms where the screenings will happen)  Time elapsed: 0.169 sec  <<< FAILURE!
-java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/rooms.feature:4)
+an admin user can delete a room(allow creating, reading, updating and deleting rooms where the screenings will happen)  Time elapsed: 6.198 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Expected: "There are no rooms at the moment"
+     but: was "["
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is "There are no rooms at the moment"(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/rooms.feature:28)
 
-an admin user can update a room(allow creating, reading, updating and deleting rooms where the screenings will happen)  Time elapsed: 0.158 sec  <<< FAILURE!
-java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/rooms.feature:4)
+an unauthenticated user can list rooms(allow creating, reading, updating and deleting rooms where the screenings will happen)  Time elapsed: 6.608 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Expected: "Room Pedersoli with 200 seats, 20 rows and 10 columns"
+     but: was "["
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is "Room Pedersoli with 200 seats, 20 rows and 10 columns"(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/rooms.feature:36)
 
-an admin user can delete a room(allow creating, reading, updating and deleting rooms where the screenings will happen)  Time elapsed: 0.171 sec  <<< FAILURE!
-java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/rooms.feature:4)
+The admin user can create and query screenings(allows creating, deleting and listing screenings)  Time elapsed: 7.997 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Expected: "Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 10:45"
+     but: was "There are no screenings"
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is "Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 10:45"(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:18)
 
-an unauthenticated user can list rooms(allow creating, reading, updating and deleting rooms where the screenings will happen)  Time elapsed: 0.17 sec  <<< FAILURE!
-java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/rooms.feature:4)
+The admin can not create overlapping screenings in the same room(allows creating, deleting and listing screenings)  Time elapsed: 7.93 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Expected: "There is an overlapping screening"
+     but: was "[31mcould not initialize proxy [com.epam.training.ticketservice.core.room.persistence.Room#Pedersoli] - no Session[0m"
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is "There is an overlapping screening"(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:26)
 
-The admin user can create and query screenings(allows creating, deleting and listing screenings)  Time elapsed: 0.157 sec  <<< FAILURE!
-java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:3)
+The admin can create overlapping screenings in different rooms(allows creating, deleting and listing screenings)  Time elapsed: 8.181 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Expected: "Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 10:45"
+     but: was "There are no screenings"
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is "Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 10:45"(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:36)
 
-The admin can not create overlapping screenings in the same room(allows creating, deleting and listing screenings)  Time elapsed: 0.174 sec  <<< FAILURE!
-java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:3)
+The admin can not create screenings during a 10 minute long breaks after another screening in the same room(allows creating, deleting and listing screenings)  Time elapsed: 8.173 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Expected: "This would start in the break period after another screening in this room"
+     but: was "[31mcould not initialize proxy [com.epam.training.ticketservice.core.room.persistence.Room#Pedersoli] - no Session[0m"
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is "This would start in the break period after another screening in this room"(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:44)
 
-The admin can create overlapping screenings in different rooms(allows creating, deleting and listing screenings)  Time elapsed: 0.171 sec  <<< FAILURE!
-java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:3)
-
-The admin can not create screenings during a 10 minute long breaks after another screening in the same room(allows creating, deleting and listing screenings)  Time elapsed: 0.169 sec  <<< FAILURE!
-java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:3)
-
-The admin can create screenings even if there is a break after a screening in a different room(allows creating, deleting and listing screenings)  Time elapsed: 0.17 sec  <<< FAILURE!
-java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:3)
-
-The admin user can delete screenings(allows creating, deleting and listing screenings)  Time elapsed: 0.171 sec  <<< FAILURE!
-java.lang.AssertionError: The service is not running.
-	at com.training.epam.ticketservice.at.ProcessUnderTest.verifyProcessIsRunning(ProcessUnderTest.java:92)
-	at com.training.epam.ticketservice.at.ProcessUnderTest.run(ProcessUnderTest.java:37)
-	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.applicationStarted(GenericCliProcessStepDefs.java:27)
-	at ✽.the application is started(file:///C:/Users/olahb/Desktop/Egyetem/5.félév/java/saját%20fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:3)
+The admin can create screenings even if there is a break after a screening in a different room(allows creating, deleting and listing screenings)  Time elapsed: 8.339 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Expected: "Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 11:00"
+     but: was "There are no screenings"
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at com.training.epam.ticketservice.at.GenericCliProcessStepDefs.theNextLineOfOutputContains(GenericCliProcessStepDefs.java:43)
+	at ✽.the next line of the output is "Sátántangó (drama, 450 minutes), screened in room Pedersoli, at 2021-03-15 11:00"(file:///C:/Users/olahb/Desktop/Egyetem/java/fork/epam-deik-java-dev/final/ticket-service-acceptance-tests/src/test/resources/features/screenings.feature:54)
 
