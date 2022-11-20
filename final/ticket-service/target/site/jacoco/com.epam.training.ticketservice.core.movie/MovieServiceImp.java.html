@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MovieServiceImp.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ticket-service</a> &gt; <a href="index.source.html" class="el_package">com.epam.training.ticketservice.core.movie</a> &gt; <span class="el_source">MovieServiceImp.java</span></div><h1>MovieServiceImp.java</h1><pre class="source lang-java linenums">package com.epam.training.ticketservice.core.movie;
+
+import com.epam.training.ticketservice.core.movie.model.MovieDto;
+import com.epam.training.ticketservice.core.movie.persistence.Movie;
+import com.epam.training.ticketservice.core.movie.persistence.MovieRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+@Service
+<span class="fc" id="L16">@AllArgsConstructor</span>
+public class MovieServiceImp implements MovieService {
+
+    @Autowired
+    private MovieRepository movieRepository;
+
+
+    @Override
+    public void createMovie(MovieDto movieDto) {
+<span class="fc" id="L25">        Movie movie = new Movie(movieDto.getTitle(), movieDto.getGenre(), movieDto.getLength());</span>
+<span class="fc" id="L26">        movieRepository.save(movie);</span>
+<span class="fc" id="L27">    }</span>
+
+    @Override
+    public List&lt;MovieDto&gt; getMovieList() {
+<span class="fc" id="L31">        return movieRepository.findAll().stream()</span>
+<span class="fc" id="L32">                .map(this::convertEntityToDto)</span>
+<span class="fc" id="L33">                .collect(Collectors.toList());</span>
+    }
+
+    @Override
+    public Optional&lt;MovieDto&gt; getMovieByTitle(String title) {
+<span class="fc" id="L38">        return Optional.ofNullable(convertEntityToDto(movieRepository.findByTitle(title)));</span>
+    }
+
+    @Override
+    public void deleteMovie(MovieDto movieDto) {
+<span class="nc" id="L43">        Movie movie = movieRepository.findByTitle(movieDto.getTitle());</span>
+<span class="nc" id="L44">        movieRepository.delete(movie);</span>
+<span class="nc" id="L45">    }</span>
+
+    @Override
+    public void updateMovie(String title, String genre, int length) {
+<span class="nc" id="L49">        Optional&lt;MovieDto&gt; movie = getMovieByTitle(title);</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">        if (movie.isPresent()) {</span>
+<span class="nc" id="L51">            MovieDto m = new MovieDto(movie.get().getTitle(),</span>
+<span class="nc" id="L52">                    movie.get().getGenre(),</span>
+<span class="nc" id="L53">                    movie.get().getLength());</span>
+<span class="nc" id="L54">            deleteMovie(m);</span>
+<span class="nc" id="L55">            MovieDto newMovieDto = new MovieDto(title, genre, length);</span>
+<span class="nc" id="L56">            createMovie(newMovieDto);</span>
+        }
+<span class="nc" id="L58">    }</span>
+
+    private MovieDto convertEntityToDto(Movie movie) {
+<span class="fc" id="L61">        return MovieDto.builder()</span>
+<span class="fc" id="L62">                .withTitle(movie.getTitle())</span>
+<span class="fc" id="L63">                .withGenre(movie.getGenre())</span>
+<span class="fc" id="L64">                .withLength(movie.getLength())</span>
+<span class="fc" id="L65">                .build();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

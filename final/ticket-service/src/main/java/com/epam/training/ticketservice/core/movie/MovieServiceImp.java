@@ -3,6 +3,7 @@ package com.epam.training.ticketservice.core.movie;
 import com.epam.training.ticketservice.core.movie.model.MovieDto;
 import com.epam.training.ticketservice.core.movie.persistence.Movie;
 import com.epam.training.ticketservice.core.movie.persistence.MovieRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class MovieServiceImp implements MovieService {
 
     @Autowired
@@ -38,7 +40,7 @@ public class MovieServiceImp implements MovieService {
 
     @Override
     public void deleteMovie(MovieDto movieDto) {
-        Movie movie = new Movie(movieDto.getTitle(), movieDto.getGenre(), movieDto.getLength());
+        Movie movie = movieRepository.findByTitle(movieDto.getTitle());
         movieRepository.delete(movie);
     }
 

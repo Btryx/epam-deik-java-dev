@@ -2,11 +2,12 @@ package com.epam.training.ticketservice.ui.commands;
 
 import com.epam.training.ticketservice.core.movie.MovieService;
 import com.epam.training.ticketservice.core.movie.model.MovieDto;
+import com.epam.training.ticketservice.core.movie.persistence.Movie;
 import com.epam.training.ticketservice.core.room.RoomService;
 import com.epam.training.ticketservice.core.room.model.RoomDto;
+import com.epam.training.ticketservice.core.room.persistence.Room;
 import com.epam.training.ticketservice.core.screening.ScreeningService;
 import com.epam.training.ticketservice.core.screening.model.ScreeningDto;
-import com.epam.training.ticketservice.core.user.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
@@ -14,7 +15,11 @@ import org.springframework.shell.standard.ShellMethodAvailability;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @ShellComponent
@@ -24,7 +29,6 @@ public class ScreeningCommands {
     private final ScreeningService screeningService;
     private final RoomService roomService;
     private final MovieService movieService;
-    private final UserService userService;
 
     @ShellMethodAvailability("isAvailable")
     @ShellMethod(key = "create screening", value = "Create new screening")
@@ -34,18 +38,18 @@ public class ScreeningCommands {
         Optional<RoomDto> roomDto = roomService.getRoomByRoomName(roomName);
         Date convertedDate = convertStringToDate(date);
 
-        if (movieDto.isEmpty()){
+        if (movieDto.isEmpty()) {
             return "Can't create screening, because movie does not exist";
         }
-        if (roomDto.isEmpty()){
+        if (roomDto.isEmpty()) {
             return "Can't create screening, because room does not exist";
         }
-        RoomDto room = new RoomDto(roomDto.get().getName(),
+        Room room = new Room(roomDto.get().getName(),
                     roomDto.get().getRows(),
                     roomDto.get().getCols());
 
 
-        MovieDto movie = new MovieDto(movieDto.get().getTitle(),
+        Movie movie = new Movie(movieDto.get().getTitle(),
                 movieDto.get().getGenre(),
                 movieDto.get().getLength());
 
@@ -55,9 +59,9 @@ public class ScreeningCommands {
         long endOfScreeningToBeCreated = cal.getTime().getTime();
         long startOfScreeningToBeCreated = convertedDate.getTime();
         String screeningCheck =
-                CheckScreeningOverlapping(startOfScreeningToBeCreated, endOfScreeningToBeCreated, room);
+                checkScreeningOverlapping(startOfScreeningToBeCreated, endOfScreeningToBeCreated, room);
 
-        if(screeningCheck.equals("Screening created")){
+        if (screeningCheck.equals("Screening created")) {
             ScreeningDto screeningDto = new ScreeningDto(movie, room, convertedDate);
             screeningService.createScreening(screeningDto);
             return "New screening created";
@@ -72,25 +76,20 @@ public class ScreeningCommands {
         Date convertedDate = convertStringToDate(date);
 
         Optional<MovieDto> movieDto = movieService.getMovieByTitle(movieTitle);
-        if(movieDto.isPresent()){
-            MovieDto m = new MovieDto(movieDto.get().getTitle(),
+        if (movieDto.isPresent()) {
+            MovieDto movie = new MovieDto(movieDto.get().getTitle(),
                     movieDto.get().getGenre(),
                     movieDto.get().getLength());
 
             Optional<RoomDto> roomDto = roomService.getRoomByRoomName(roomName);
-            if(roomDto.isPresent()){
+            if (roomDto.isPresent()) {
                 RoomDto room = new RoomDto(roomDto.get().getName(),
                         roomDto.get().getRows(),
                         roomDto.get().getCols());
-                ScreeningDto screeningDto = new ScreeningDto(m, room, convertedDate);
-                if(screeningService.getScreeningList().contains(screeningDto)){
-                    screeningService.deleteScreening(screeningDto);
-                    return "Deleted screening";
-                }
+                screeningService.deleteScreening(movie, room, convertedDate);
+                return "Deleted screening";
             }
-
         }
-
         return "Can't delete screening, because it does not exist";
     }
 
@@ -102,11 +101,9 @@ public class ScreeningCommands {
 
     @ShellMethod(key = "list screenings", value = "List all screenings")
     public String listScreenings() {
-
         if (screeningService.getScreeningList().size() == 0) {
             return "There are no screenings";
         }
-
         return screeningListToString(screeningService.getScreeningList());
     }
 
@@ -115,21 +112,23 @@ public class ScreeningCommands {
                 .parse(stringDate);
     }
 
-    public String CheckScreeningOverlapping(long start, long end, RoomDto roomDto){
+    public String checkScreeningOverlapping(long start, long end, Room room) {
 
         for (ScreeningDto scr : screeningService.getScreeningList()) {
-            if (scr.getRoomDto().equals(roomDto)){
+            if (scr.getRoom().equals(room)) {
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTime(scr.getTime());
-                calendar.add(Calendar.MINUTE, scr.getMovieDto().getLength());
+                calendar.add(Calendar.MINUTE, scr.getMovie().getLength());
                 long endOfScreening = calendar.getTime().getTime();
                 long startOfScreening = scr.getTime().getTime();
 
-                if(startOfScreening <= start &&
-                        endOfScreening >= start ||
-                        startOfScreening <= end &&
-                                endOfScreening >= end
-                ) return "There is an overlapping screening";
+                if (startOfScreening <= start
+                        && endOfScreening >= start
+                        || startOfScreening <= end
+                        && endOfScreening >= end
+                ) {
+                    return "There is an overlapping screening";
+                }
 
                 calendar.add(Calendar.MINUTE, 10);
                 endOfScreening = calendar.getTime().getTime();
@@ -137,11 +136,13 @@ public class ScreeningCommands {
                 calendar.add(Calendar.MINUTE, -10);
                 startOfScreening = calendar.getTime().getTime();
 
-                if(startOfScreening <= start &&
-                        endOfScreening >= start ||
-                        startOfScreening <= end &&
-                                endOfScreening >= end
-                ) return "This would start in the break period after another screening in this room";
+                if (startOfScreening <= start
+                        && endOfScreening >= start
+                        || startOfScreening <= end
+                        && endOfScreening >= end
+                ) {
+                    return "This would start in the break period after another screening in this room";
+                }
             }
             return "Screening created";
         }

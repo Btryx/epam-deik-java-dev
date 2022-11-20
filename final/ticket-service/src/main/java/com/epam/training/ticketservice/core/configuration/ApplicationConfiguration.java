@@ -9,9 +9,4 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ApplicationConfiguration {
 
-    @Bean(initMethod = "initScreenings")
-    public ScreeningService screeningService() {
-        return new ScreeningServiceImp();
-    }
-
 }

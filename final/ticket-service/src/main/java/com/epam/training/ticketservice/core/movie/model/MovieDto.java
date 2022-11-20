@@ -21,13 +21,21 @@ public class MovieDto {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         MovieDto movieDto = (MovieDto) o;
 
-        if (length != movieDto.length) return false;
-        if (!Objects.equals(title, movieDto.title)) return false;
+        if (length != movieDto.length) {
+            return false;
+        }
+        if (!Objects.equals(title, movieDto.title)) {
+            return false;
+        }
         return Objects.equals(genre, movieDto.genre);
     }
 

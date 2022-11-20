@@ -4,6 +4,7 @@ import com.epam.training.ticketservice.core.movie.model.MovieDto;
 import com.epam.training.ticketservice.core.room.model.RoomDto;
 import com.epam.training.ticketservice.core.room.persistence.Room;
 import com.epam.training.ticketservice.core.room.persistence.RoomRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +13,12 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class RoomServiceImp implements RoomService {
 
     @Autowired
     private RoomRepository roomRepository;
+
 
     @Override
     public void createRoom(RoomDto roomDto) {
@@ -37,7 +40,7 @@ public class RoomServiceImp implements RoomService {
 
     @Override
     public void deleteRoom(RoomDto roomDto) {
-        Room room = new Room(roomDto.getName(), roomDto.getRows(), roomDto.getCols());
+        Room room = roomRepository.findByName(roomDto.getName());
         roomRepository.delete(room);
     }
 

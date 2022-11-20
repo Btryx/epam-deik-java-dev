@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RoomServiceImp.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ticket-service</a> &gt; <a href="index.source.html" class="el_package">com.epam.training.ticketservice.core.room</a> &gt; <span class="el_source">RoomServiceImp.java</span></div><h1>RoomServiceImp.java</h1><pre class="source lang-java linenums">package com.epam.training.ticketservice.core.room;
+
+import com.epam.training.ticketservice.core.movie.model.MovieDto;
+import com.epam.training.ticketservice.core.room.model.RoomDto;
+import com.epam.training.ticketservice.core.room.persistence.Room;
+import com.epam.training.ticketservice.core.room.persistence.RoomRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+@Service
+<span class="fc" id="L16">@AllArgsConstructor</span>
+public class RoomServiceImp implements RoomService {
+
+    @Autowired
+    private RoomRepository roomRepository;
+
+
+    @Override
+    public void createRoom(RoomDto roomDto) {
+<span class="fc" id="L25">        Room room = new Room(roomDto.getName(), roomDto.getRows(), roomDto.getCols());</span>
+<span class="fc" id="L26">        roomRepository.save(room);</span>
+<span class="fc" id="L27">    }</span>
+
+    @Override
+    public List&lt;RoomDto&gt; getRoomList() {
+<span class="fc" id="L31">        return roomRepository.findAll().stream()</span>
+<span class="fc" id="L32">                .map(this::convertEntityToDto)</span>
+<span class="fc" id="L33">                .collect(Collectors.toList());</span>
+    }
+
+    @Override
+    public Optional&lt;RoomDto&gt; getRoomByRoomName(String name) {
+<span class="fc" id="L38">        return Optional.ofNullable(convertEntityToDto(roomRepository.findByName(name)));</span>
+    }
+
+    @Override
+    public void deleteRoom(RoomDto roomDto) {
+<span class="nc" id="L43">        Room room = roomRepository.findByName(roomDto.getName());</span>
+<span class="nc" id="L44">        roomRepository.delete(room);</span>
+<span class="nc" id="L45">    }</span>
+
+    @Override
+    public void updateRoom(String name, int rows, int cols) {
+<span class="nc" id="L49">        Optional&lt;RoomDto&gt; room = getRoomByRoomName(name);</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">        if (room.isPresent()) {</span>
+<span class="nc" id="L51">            RoomDto r = new RoomDto(room.get().getName(),</span>
+<span class="nc" id="L52">                    room.get().getRows(),</span>
+<span class="nc" id="L53">                    room.get().getCols());</span>
+<span class="nc" id="L54">            deleteRoom(r);</span>
+<span class="nc" id="L55">            RoomDto newRoom = new RoomDto(name, rows, cols);</span>
+<span class="nc" id="L56">            createRoom(newRoom);</span>
+        }
+<span class="nc" id="L58">    }</span>
+
+    private RoomDto convertEntityToDto(Room room) {
+<span class="fc" id="L61">        return RoomDto.builder()</span>
+<span class="fc" id="L62">                .withName(room.getName())</span>
+<span class="fc" id="L63">                .withRows(room.getRows())</span>
+<span class="fc" id="L64">                .withCols(room.getCols())</span>
+<span class="fc" id="L65">                .build();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

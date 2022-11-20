@@ -1,0 +1,3 @@
+com\epam\training\ticketservice\core\movie\MovieServiceImpTest.class
+com\epam\training\ticketservice\core\user\UserServiceImplTest.class
+com\epam\training\ticketservice\core\room\RoomServiceImpTest.class

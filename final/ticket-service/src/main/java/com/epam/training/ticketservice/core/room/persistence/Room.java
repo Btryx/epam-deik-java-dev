@@ -25,10 +25,10 @@ public class Room {
 
     @Override
     public String toString() {
-        return "Room{" +
-                "name='" + name + '\'' +
-                ", rows=" + rows +
-                ", cols=" + cols +
-                '}';
+        return "Room "
+                + name
+                + " with " + rows * cols + " seats, "
+                + rows + " rows"
+                + " and " + cols + " columns";
     }
 }
