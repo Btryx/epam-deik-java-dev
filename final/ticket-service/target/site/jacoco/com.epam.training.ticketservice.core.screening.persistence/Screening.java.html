@@ -3,10 +3,11 @@
 
 import com.epam.training.ticketservice.core.movie.persistence.Movie;
 import com.epam.training.ticketservice.core.room.persistence.Room;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
+
 import org.hibernate.Hibernate;
 
 import javax.persistence.Entity;
@@ -17,43 +18,26 @@ import java.util.Date;
 import java.util.Objects;
 
 @Entity
-@Getter
-<span class="nc" id="L21">@Setter</span>
-<span class="nc" id="L22">@ToString</span>
-<span class="nc" id="L23">@NoArgsConstructor</span>
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Screening {
 
     @Id
     @GeneratedValue
-<span class="nc" id="L28">    private Integer id;</span>
+    private Integer id;
 
     @ManyToOne
-<span class="nc" id="L31">    Movie movie;</span>
+    Movie movie;
     @ManyToOne
-<span class="nc" id="L33">    Room room;</span>
-<span class="nc" id="L34">    Date time;</span>
+    Room room;
+    Date time;
 
-<span class="nc" id="L36">    public Screening(Movie movie, Room room, Date time) {</span>
-<span class="nc" id="L37">        this.movie = movie;</span>
-<span class="nc" id="L38">        this.room = room;</span>
-<span class="nc" id="L39">        this.time = time;</span>
-<span class="nc" id="L40">    }</span>
+<span class="fc" id="L36">    public Screening(Movie movie, Room room, Date time) {</span>
+<span class="fc" id="L37">        this.movie = movie;</span>
+<span class="fc" id="L38">        this.room = room;</span>
+<span class="fc" id="L39">        this.time = time;</span>
+<span class="fc" id="L40">    }</span>
 
-    @Override
-    public boolean equals(Object o) {
-<span class="nc bnc" id="L44" title="All 2 branches missed.">        if (this == o) {</span>
-<span class="nc" id="L45">            return true;</span>
-        }
-<span class="nc bnc" id="L47" title="All 4 branches missed.">        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) {</span>
-<span class="nc" id="L48">            return false;</span>
-        }
-<span class="nc" id="L50">        Screening screening = (Screening) o;</span>
-<span class="nc bnc" id="L51" title="All 4 branches missed.">        return id != null &amp;&amp; Objects.equals(id, screening.id);</span>
-    }
-
-    @Override
-    public int hashCode() {
-<span class="nc" id="L56">        return getClass().hashCode();</span>
-    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="17" failures="0" name="com.training.epam.ticketservice.at.TestExecutor" time="100.201" errors="0" skipped="0">
+<testsuite tests="17" failures="0" name="com.training.epam.ticketservice.at.TestExecutor" time="97.025" errors="0" skipped="0">
   <properties>
-    <property name="idea.version" value="2021.3.3"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
-    <property name="java.vm.version" value="17.0.4.1+9-LTS"/>
-    <property name="sun.boot.library.path" value="C:\Users\olahb\.jdks\corretto-17.0.4.1\bin"/>
+    <property name="idea.version" value="2021.3.3"/>
+    <property name="java.vm.version" value="11.0.11+9"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot\bin"/>
     <property name="maven.multiModuleProjectDirectory" value="C:\Users\olahb\Desktop\Egyetem\java\fork\epam-deik-java-dev\final"/>
-    <property name="java.vm.vendor" value="Amazon.com Inc."/>
-    <property name="java.vendor.url" value="https://aws.amazon.com/corretto/"/>
-    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.vendor" value="AdoptOpenJDK"/>
+    <property name="java.vendor.url" value="https://adoptopenjdk.net/"/>
     <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
-    <property name="sun.os.patch.level" value=""/>
-    <property name="user.script" value=""/>
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
-    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.script" value=""/>
+    <property name="sun.os.patch.level" value=""/>
     <property name="user.dir" value="C:\Users\olahb\Desktop\Egyetem\java\fork\epam-deik-java-dev\final"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
-    <property name="java.runtime.version" value="17.0.4.1+9-LTS"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.runtime.version" value="11.0.11+9"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.io.tmpdir" value="C:\Users\olahb\AppData\Local\Temp\"/>
     <property name="line.separator" value="
@@ -29,53 +30,55 @@
     <property name="maven.ext.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2021.3.2\plugins\maven\lib\maven-event-listener.jar"/>
     <property name="classworlds.conf" value="C:\Program Files\JetBrains\IntelliJ IDEA 2021.3.2\plugins\maven\lib\maven3\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Users\olahb\.jdks\corretto-17.0.4.1\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\olahb\.sdkman\candidates\java\17.0.2-open\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Users\olahb\Downloads\yes\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\Program Files\MATLAB\R2021a\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files\GitHub CLI\;C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot\bin;C:\Program Files\apache-maven-3.8.5-bin\apache-maven-3.8.5\bin;C:\Program Files\Git\cmd;C:\Program Files\PuTTY\;C:\Program Files\opencv\build\x64\vc15\bin\;C:\Users\olahb\AppData\Local\Microsoft\WindowsApps;C:\Users\olahb\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\olahb\.dotnet\tools;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.1\bin;;C:\Users\olahb\AppData\Local\GitHubDesktop\bin;C:\Users\olahb\AppData\Local\Pandoc\;C:\Users\olahb\AppData\Roaming\npm;."/>
+    <property name="java.library.path" value="C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\olahb\.sdkman\candidates\java\17.0.2-open\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Users\olahb\Downloads\yes\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\Program Files\MATLAB\R2021a\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files\GitHub CLI\;C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot\bin;C:\Program Files\apache-maven-3.8.5-bin\apache-maven-3.8.5\bin;C:\Program Files\Git\cmd;C:\Program Files\PuTTY\;C:\Program Files\opencv\build\x64\vc15\bin\;C:\Users\olahb\AppData\Local\Microsoft\WindowsApps;C:\Users\olahb\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\olahb\.dotnet\tools;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.1\bin;;C:\Users\olahb\AppData\Local\GitHubDesktop\bin;C:\Users\olahb\AppData\Local\Pandoc\;C:\Users\olahb\AppData\Roaming\npm;."/>
     <property name="maven.conf" value="C:\Program Files\JetBrains\IntelliJ IDEA 2021.3.2\plugins\maven\lib\maven3/conf"/>
     <property name="jdk.debug" value="release"/>
-    <property name="java.class.version" value="61.0"/>
+    <property name="java.class.version" value="55.0"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="os.version" value="10.0"/>
     <property name="user.home" value="C:\Users\olahb"/>
-    <property name="user.timezone" value="Europe/Budapest"/>
+    <property name="user.timezone" value="Europe/Prague"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
     <property name="file.encoding" value="UTF-8"/>
-    <property name="java.specification.version" value="17"/>
-    <property name="user.name" value="olahb"/>
+    <property name="java.specification.version" value="11"/>
     <property name="java.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2021.3.2\plugins\maven\lib\maven3\boot\plexus-classworlds-2.6.0.jar;C:\Program Files\JetBrains\IntelliJ IDEA 2021.3.2\plugins\maven\lib\maven3\boot\plexus-classworlds.license"/>
-    <property name="java.vm.specification.version" value="17"/>
+    <property name="user.name" value="olahb"/>
+    <property name="java.vm.specification.version" value="11"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2021.3.3 clean verify -P requirements-grade2"/>
-    <property name="java.home" value="C:\Users\olahb\.jdks\corretto-17.0.4.1"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2021.3.3 clean verify -P requirements-grade2,requirements-grade3"/>
+    <property name="java.home" value="C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.vm.info" value="mixed mode, sharing"/>
-    <property name="java.version" value="17.0.4.1"/>
-    <property name="native.encoding" value="Cp1252"/>
-    <property name="java.vendor" value="Amazon.com Inc."/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="11.0.11"/>
+    <property name="java.vendor" value="AdoptOpenJDK"/>
     <property name="maven.home" value="C:\Program Files\JetBrains\IntelliJ IDEA 2021.3.2\plugins\maven\lib\maven3"/>
     <property name="file.separator" value="\"/>
-    <property name="java.version.date" value="2022-08-12"/>
-    <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-17/issues/"/>
-    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.version.date" value="2021-04-20"/>
+    <property name="java.vendor.url.bug" value="https://github.com/AdoptOpenJDK/openjdk-support/issues"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="java.vendor.version" value="Corretto-17.0.4.9.1"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.vendor.version" value="AdoptOpenJDK-11.0.11+9"/>
+    <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="allow creating accounts and logging in" name="the admin account exists by default and can be logged in with the correct password" time="4.413"/>
-  <testcase classname="allow creating accounts and logging in" name="the admin account can be signed out" time="4.834"/>
-  <testcase classname="allow creating accounts and logging in" name="the admin account can not be logged in with incorrect password" time="4.782"/>
-  <testcase classname="allows creating movie descriptions" name="an admin user can create and list movies" time="5.007"/>
-  <testcase classname="allows creating movie descriptions" name="an admin user can update a movie" time="5.839"/>
-  <testcase classname="allows creating movie descriptions" name="an admin user can delete a movie" time="5.401"/>
-  <testcase classname="allows creating movie descriptions" name="an unauthenticated user can list movies" time="5.721"/>
-  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can create and list rooms" time="5.254"/>
-  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can update a room" time="5.308"/>
-  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can delete a room" time="5.341"/>
-  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an unauthenticated user can list rooms" time="5.485"/>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin user can create and query screenings" time="7.042"/>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin can not create overlapping screenings in the same room" time="6.91"/>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin can create overlapping screenings in different rooms" time="8.327"/>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin can not create screenings during a 10 minute long breaks after another screening in the same room" time="6.736"/>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin can create screenings even if there is a break after a screening in a different room" time="6.79"/>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin user can delete screenings" time="7.011"/>
+  <testcase classname="allow creating accounts and logging in" name="the admin account exists by default and can be logged in with the correct password" time="4.696"/>
+  <testcase classname="allow creating accounts and logging in" name="the admin account can be signed out" time="5.118"/>
+  <testcase classname="allow creating accounts and logging in" name="the admin account can not be logged in with incorrect password" time="4.829"/>
+  <testcase classname="allows creating movie descriptions" name="an admin user can create and list movies" time="5.183"/>
+  <testcase classname="allows creating movie descriptions" name="an admin user can update a movie" time="5.152"/>
+  <testcase classname="allows creating movie descriptions" name="an admin user can delete a movie" time="5.243"/>
+  <testcase classname="allows creating movie descriptions" name="an unauthenticated user can list movies" time="5.445"/>
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can create and list rooms" time="4.924"/>
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can update a room" time="5.321"/>
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can delete a room" time="5.169"/>
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an unauthenticated user can list rooms" time="5.286"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin user can create and query screenings" time="6.807"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can not create overlapping screenings in the same room" time="6.766"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can create overlapping screenings in different rooms" time="6.757"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can not create screenings during a 10 minute long breaks after another screening in the same room" time="6.794"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can create screenings even if there is a break after a screening in a different room" time="6.797"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin user can delete screenings" time="6.738"/>
 </testsuite>

@@ -27,31 +27,35 @@ public class MovieCommands {
     @ShellMethodAvailability("isAvailable")
     @ShellMethod(key = "create movie", value = "Create new movie")
     public String addMovie(String title, String genre, int length) {
-        movieService.createMovie(new MovieDto(title, genre, length));
-        return "New movie created, with the title: " + title;
+        try {
+            movieService.createMovie(new MovieDto(title, genre, length));
+            return "New movie created, with the title: " + title;
+        } catch (IllegalArgumentException e) {
+            return e.getMessage();
+        }
+
     }
 
     @ShellMethodAvailability("isAvailable")
     @ShellMethod(key = "update movie", value = "Update existing movie")
     public String editMovie(String title, String genre, int length) {
-        if (movieService.getMovieByTitle(title).isPresent()) {
+        try {
             movieService.updateMovie(title, genre, length);
             return "Movie with title " + title + " updated";
+        } catch (IllegalArgumentException e) {
+            return e.getMessage();
         }
-        return "No movie with title " + title;
     }
 
     @ShellMethodAvailability("isAvailable")
     @ShellMethod(key = "delete movie", value = "Update existing movie")
     public String deleteMovie(String title) {
-        Optional<MovieDto> movie = movieService.getMovieByTitle(title);
-        if (movie.isPresent()) {
-            MovieDto newMovie =
-                    new MovieDto(movie.get().getTitle(), movie.get().getGenre(), movie.get().getLength());
-            movieService.deleteMovie(newMovie);
-            return "Movie with title " + title + " deleted";
+        try {
+            movieService.deleteMovieByTitle(title);
+            return "Delete was successful";
+        } catch (IllegalArgumentException e) {
+            return e.getMessage();
         }
-        return "No movie with title " + title;
     }
 
     public String movieListToString(List<MovieDto> list) {

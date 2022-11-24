@@ -7,8 +7,10 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -22,6 +24,9 @@ public class MovieServiceImp implements MovieService {
 
     @Override
     public void createMovie(MovieDto movieDto) {
+        if (existsByTitle(movieDto.getTitle())) {
+            throw new IllegalArgumentException("Movie with this title already exists");
+        }
         Movie movie = new Movie(movieDto.getTitle(), movieDto.getGenre(), movieDto.getLength());
         movieRepository.save(movie);
     }
@@ -39,23 +44,38 @@ public class MovieServiceImp implements MovieService {
     }
 
     @Override
-    public void deleteMovie(MovieDto movieDto) {
-        Movie movie = movieRepository.findByTitle(movieDto.getTitle());
-        movieRepository.delete(movie);
+    @Transactional
+    public void deleteMovieByTitle(String title) {
+        if (!existsByTitle(title)) {
+            throw new IllegalArgumentException("Movie does not exists");
+        }
+        movieRepository.deleteMovieByTitle(title);
     }
 
     @Override
-    public void updateMovie(String title, String genre, int length) {
-        Optional<MovieDto> movie = getMovieByTitle(title);
-        if (movie.isPresent()) {
-            MovieDto m = new MovieDto(movie.get().getTitle(),
-                    movie.get().getGenre(),
-                    movie.get().getLength());
-            deleteMovie(m);
-            MovieDto newMovieDto = new MovieDto(title, genre, length);
-            createMovie(newMovieDto);
-        }
+    public Movie findByTitle(String title) {
+        return movieRepository.findByTitle(title);
     }
+
+    @Override
+    @Transactional
+    public void updateMovie(String title, String genre, int length) {
+
+        if (!existsByTitle(title)) {
+            throw new IllegalArgumentException("Movie does not exists");
+        }
+
+        Movie movie = movieRepository.findByTitle(title);
+        movie.setGenre(genre);
+        movie.setLength(length);
+        movieRepository.save(movie);
+    }
+
+    @Override
+    public Boolean existsByTitle(String title) {
+        return movieRepository.existsByTitle(title);
+    }
+
 
     private MovieDto convertEntityToDto(Movie movie) {
         return MovieDto.builder()

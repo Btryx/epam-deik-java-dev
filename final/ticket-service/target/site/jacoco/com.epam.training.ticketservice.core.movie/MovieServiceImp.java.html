@@ -7,13 +7,15 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-<span class="fc" id="L16">@AllArgsConstructor</span>
+@AllArgsConstructor
 public class MovieServiceImp implements MovieService {
 
     @Autowired
@@ -22,47 +24,65 @@ public class MovieServiceImp implements MovieService {
 
     @Override
     public void createMovie(MovieDto movieDto) {
-<span class="fc" id="L25">        Movie movie = new Movie(movieDto.getTitle(), movieDto.getGenre(), movieDto.getLength());</span>
-<span class="fc" id="L26">        movieRepository.save(movie);</span>
-<span class="fc" id="L27">    }</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        if (existsByTitle(movieDto.getTitle())) {</span>
+<span class="fc" id="L28">            throw new IllegalArgumentException(&quot;Movie with this title already exists&quot;);</span>
+        }
+<span class="fc" id="L30">        Movie movie = new Movie(movieDto.getTitle(), movieDto.getGenre(), movieDto.getLength());</span>
+<span class="fc" id="L31">        movieRepository.save(movie);</span>
+<span class="fc" id="L32">    }</span>
 
     @Override
     public List&lt;MovieDto&gt; getMovieList() {
-<span class="fc" id="L31">        return movieRepository.findAll().stream()</span>
-<span class="fc" id="L32">                .map(this::convertEntityToDto)</span>
-<span class="fc" id="L33">                .collect(Collectors.toList());</span>
+<span class="fc" id="L36">        return movieRepository.findAll().stream()</span>
+<span class="fc" id="L37">                .map(this::convertEntityToDto)</span>
+<span class="fc" id="L38">                .collect(Collectors.toList());</span>
     }
 
     @Override
     public Optional&lt;MovieDto&gt; getMovieByTitle(String title) {
-<span class="fc" id="L38">        return Optional.ofNullable(convertEntityToDto(movieRepository.findByTitle(title)));</span>
+<span class="fc" id="L43">        return Optional.ofNullable(convertEntityToDto(movieRepository.findByTitle(title)));</span>
     }
 
     @Override
-    public void deleteMovie(MovieDto movieDto) {
-<span class="nc" id="L43">        Movie movie = movieRepository.findByTitle(movieDto.getTitle());</span>
-<span class="nc" id="L44">        movieRepository.delete(movie);</span>
-<span class="nc" id="L45">    }</span>
+    @Transactional
+    public void deleteMovieByTitle(String title) {
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        if (!existsByTitle(title)) {</span>
+<span class="fc" id="L50">            throw new IllegalArgumentException(&quot;Movie does not exists&quot;);</span>
+        }
+<span class="fc" id="L52">        movieRepository.deleteMovieByTitle(title);</span>
+<span class="fc" id="L53">    }</span>
 
     @Override
+    public Movie findByTitle(String title) {
+<span class="fc" id="L57">        return movieRepository.findByTitle(title);</span>
+    }
+
+    @Override
+    @Transactional
     public void updateMovie(String title, String genre, int length) {
-<span class="nc" id="L49">        Optional&lt;MovieDto&gt; movie = getMovieByTitle(title);</span>
-<span class="nc bnc" id="L50" title="All 2 branches missed.">        if (movie.isPresent()) {</span>
-<span class="nc" id="L51">            MovieDto m = new MovieDto(movie.get().getTitle(),</span>
-<span class="nc" id="L52">                    movie.get().getGenre(),</span>
-<span class="nc" id="L53">                    movie.get().getLength());</span>
-<span class="nc" id="L54">            deleteMovie(m);</span>
-<span class="nc" id="L55">            MovieDto newMovieDto = new MovieDto(title, genre, length);</span>
-<span class="nc" id="L56">            createMovie(newMovieDto);</span>
+
+<span class="fc bfc" id="L64" title="All 2 branches covered.">        if (!existsByTitle(title)) {</span>
+<span class="fc" id="L65">            throw new IllegalArgumentException(&quot;Movie does not exists&quot;);</span>
         }
-<span class="nc" id="L58">    }</span>
+
+<span class="fc" id="L68">        Movie movie = movieRepository.findByTitle(title);</span>
+<span class="fc" id="L69">        movie.setGenre(genre);</span>
+<span class="fc" id="L70">        movie.setLength(length);</span>
+<span class="fc" id="L71">        movieRepository.save(movie);</span>
+<span class="fc" id="L72">    }</span>
+
+    @Override
+    public Boolean existsByTitle(String title) {
+<span class="fc" id="L76">        return movieRepository.existsByTitle(title);</span>
+    }
+
 
     private MovieDto convertEntityToDto(Movie movie) {
-<span class="fc" id="L61">        return MovieDto.builder()</span>
-<span class="fc" id="L62">                .withTitle(movie.getTitle())</span>
-<span class="fc" id="L63">                .withGenre(movie.getGenre())</span>
-<span class="fc" id="L64">                .withLength(movie.getLength())</span>
-<span class="fc" id="L65">                .build();</span>
+<span class="fc" id="L81">        return MovieDto.builder()</span>
+<span class="fc" id="L82">                .withTitle(movie.getTitle())</span>
+<span class="fc" id="L83">                .withGenre(movie.getGenre())</span>
+<span class="fc" id="L84">                .withLength(movie.getLength())</span>
+<span class="fc" id="L85">                .build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,25 +1,24 @@
 package com.epam.training.ticketservice.core.screening;
 
-import com.epam.training.ticketservice.core.movie.model.MovieDto;
 import com.epam.training.ticketservice.core.movie.persistence.Movie;
 import com.epam.training.ticketservice.core.movie.persistence.MovieRepository;
-import com.epam.training.ticketservice.core.room.model.RoomDto;
 import com.epam.training.ticketservice.core.room.persistence.Room;
 import com.epam.training.ticketservice.core.room.persistence.RoomRepository;
 import com.epam.training.ticketservice.core.screening.model.ScreeningDto;
 import com.epam.training.ticketservice.core.screening.persistence.Screening;
 import com.epam.training.ticketservice.core.screening.persistence.ScreeningRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.ParseException;
+import javax.transaction.Transactional;
+import java.util.Calendar;
 import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class ScreeningServiceImp implements ScreeningService {
 
     @Autowired
@@ -34,6 +33,22 @@ public class ScreeningServiceImp implements ScreeningService {
 
     @Override
     public void createScreening(ScreeningDto screeningDto) {
+
+        if (!movieRepository.existsByTitle(screeningDto.getMovie().getTitle())) {
+            throw new IllegalArgumentException("Movie does not exists.");
+        }
+
+        if (!roomRepository.existsByName(screeningDto.getRoom().getName())) {
+            throw new IllegalArgumentException("Room does not exists.");
+        }
+
+        if (screeningRepository.existsByMovieAndRoomAndTime(
+                screeningDto.getMovie(), screeningDto.getRoom(), screeningDto.getTime())) {
+            throw new IllegalArgumentException("Screening already exists");
+        }
+
+        checkScreeningOverlapping(screeningDto);
+
         Screening screening = new Screening(screeningDto.getMovie(),
                 screeningDto.getRoom(), screeningDto.getTime());
         screeningRepository.save(screening);
@@ -47,15 +62,24 @@ public class ScreeningServiceImp implements ScreeningService {
     }
 
     @Override
-    public void deleteScreening(MovieDto movieDto, RoomDto roomDto, Date time) {
-        Movie movie = movieRepository.findByTitle(movieDto.getTitle());
-        Room room = roomRepository.findByName(roomDto.getName());
-        Screening screening = screeningRepository.findByMovieAndRoomAndTime(movie, room, time);
-        if (getScreeningList().contains(convertEntityToDto(screening))) {
-            screeningRepository.delete(screening);
-        } else {
+    @Transactional
+    public void deleteScreening(Movie movie, Room room, Date time) {
+
+        if (!screeningRepository.existsByMovieAndRoomAndTime(
+                movie, room, time)) {
             throw new IllegalArgumentException("Screening does not exist");
         }
+        screeningRepository.deleteScreeningByMovieAndRoomAndTime(movie, room, time);
+    }
+
+    @Override
+    public Screening findByMovieAndRoomAndTime(Movie movie, Room room, Date time) {
+        return screeningRepository.findByMovieAndRoomAndTime(movie, room, time);
+    }
+
+    @Override
+    public Boolean existsByMovieAndRoomAndTime(Movie movie, Room room, Date time) {
+        return screeningRepository.existsByMovieAndRoomAndTime(movie, room, time);
     }
 
     private ScreeningDto convertEntityToDto(Screening screening) {
@@ -66,4 +90,45 @@ public class ScreeningServiceImp implements ScreeningService {
                 .build();
     }
 
+    public void checkScreeningOverlapping(ScreeningDto screeningDto) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(screeningDto.getTime());
+        cal.add(Calendar.MINUTE, screeningDto.getMovie().getLength());
+        long end = cal.getTime().getTime();
+        long start = screeningDto.getTime().getTime();
+
+        for (ScreeningDto scr : getScreeningList()) {
+            if (scr.getRoom().equals(screeningDto.getRoom())) {
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(scr.getTime());
+                calendar.add(Calendar.MINUTE, scr.getMovie().getLength());
+                long endOfScreening = calendar.getTime().getTime();
+                long startOfScreening = scr.getTime().getTime();
+
+                if (startOfScreening <= start
+                        && endOfScreening >= start
+                        || startOfScreening <= end
+                        && endOfScreening >= end
+                ) {
+                    throw new IllegalArgumentException("There is an overlapping screening");
+                }
+
+                calendar.add(Calendar.MINUTE, 10);
+                endOfScreening = calendar.getTime().getTime();
+                calendar.setTime(scr.getTime());
+                calendar.add(Calendar.MINUTE, -10);
+                startOfScreening = calendar.getTime().getTime();
+
+                if (startOfScreening <= start
+                        && endOfScreening >= start
+                        || startOfScreening <= end
+                        && endOfScreening >= end
+                ) {
+                    throw new IllegalArgumentException(
+                            "This would start in the break period after another screening in this room"
+                    );
+                }
+            }
+        }
+    }
 }

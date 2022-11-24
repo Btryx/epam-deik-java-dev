@@ -54,7 +54,7 @@ public class UserCommands {
         if (user.get().getRole() == User.Role.ADMIN) {
             return "Signed in with privileged account '" + user.get().getUsername() + "'";
         }
-        return "Signed in with account " + user.get().getUsername();
+        return "Signed in with account '" + user.get().getUsername() + "'";
     }
 
     @ShellMethod(key = "sign up", value = "User registration")

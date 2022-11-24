@@ -6,13 +6,20 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="ticket-service" />
+          <factory-entry name="ticket-service" value="ad735bf7-a1fb-4305-b62b-ef79837f69c4" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
-      <configuration />
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/com/epam/training/ticketservice/ui/configuration/Prompt.java</file>
+        </fileset>
+        <fileset id="fileset2" name="ApplicationConfiguration" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/com/epam/training/ticketservice/core/configuration/ApplicationConfiguration.java</file>
+        </fileset>
+      </configuration>
     </facet>
   </component>
 </module>

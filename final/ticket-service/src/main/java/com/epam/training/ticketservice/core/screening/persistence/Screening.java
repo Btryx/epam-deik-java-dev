@@ -3,10 +3,11 @@ package com.epam.training.ticketservice.core.screening.persistence;
 
 import com.epam.training.ticketservice.core.movie.persistence.Movie;
 import com.epam.training.ticketservice.core.room.persistence.Room;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
+
 import org.hibernate.Hibernate;
 
 import javax.persistence.Entity;
@@ -17,10 +18,9 @@ import java.util.Date;
 import java.util.Objects;
 
 @Entity
-@Getter
-@Setter
-@ToString
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Screening {
 
     @Id
@@ -39,20 +39,4 @@ public class Screening {
         this.time = time;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) {
-            return false;
-        }
-        Screening screening = (Screening) o;
-        return id != null && Objects.equals(id, screening.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
 }

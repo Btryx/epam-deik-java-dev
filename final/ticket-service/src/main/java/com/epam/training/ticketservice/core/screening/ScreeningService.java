@@ -5,6 +5,7 @@ import com.epam.training.ticketservice.core.movie.persistence.Movie;
 import com.epam.training.ticketservice.core.room.model.RoomDto;
 import com.epam.training.ticketservice.core.room.persistence.Room;
 import com.epam.training.ticketservice.core.screening.model.ScreeningDto;
+import com.epam.training.ticketservice.core.screening.persistence.Screening;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -16,6 +17,10 @@ public interface ScreeningService {
 
     List<ScreeningDto> getScreeningList();
 
-    void deleteScreening(MovieDto movieDto, RoomDto roomDto, Date time);
+    void deleteScreening(Movie movie, Room room, Date time);
+
+    Screening findByMovieAndRoomAndTime(Movie movie, Room room, Date time);
+
+    Boolean existsByMovieAndRoomAndTime(Movie movie, Room room, Date time);
 
 }

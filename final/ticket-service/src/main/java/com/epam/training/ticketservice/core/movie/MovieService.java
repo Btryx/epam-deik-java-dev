@@ -15,7 +15,11 @@ public interface MovieService {
 
     Optional<MovieDto> getMovieByTitle(String title);
 
-    void deleteMovie(MovieDto movieDto);
-
     void updateMovie(String name, String genre, int length);
+
+    Boolean existsByTitle(String title);
+
+    void deleteMovieByTitle(String title);
+
+    Movie findByTitle(String title);
 }

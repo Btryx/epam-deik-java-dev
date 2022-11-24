@@ -22,7 +22,7 @@ public class MovieServiceImpTest {
     private final MovieServiceImp underTest = new MovieServiceImp(movieRepository);
 
     @Test
-    void testGetMovieListShouldReturnAStaticListWithTwoElements() {
+    void testGetMovieListShouldReturnALLMovies() {
         // Given
         Mockito.when(movieRepository.findAll()).thenReturn(List.of(ENTITY));
         List<MovieDto> expected = List.of(DTO);
@@ -36,7 +36,7 @@ public class MovieServiceImpTest {
     }
 
     @Test
-    void testGetMovieByTitleShouldReturnTitleWhenInputMovieTitleIsTitle() {
+    void testGetMovieByTitleShouldReturnTitleWhenInputMovieTitleExists() {
         // Given
         Mockito.when(movieRepository.findByTitle("Kung-Fu Panda")).thenReturn(ENTITY);
         Optional<MovieDto> expected = Optional.of(DTO);
@@ -59,6 +59,133 @@ public class MovieServiceImpTest {
 
         // Then
         Mockito.verify(movieRepository).save(ENTITY);
+    }
+
+    @Test
+    void testMovieShouldNotBeCreatedIfTitleAlreadyExists(){
+
+        //Given
+        MovieDto newMovie = new MovieDto("Kung-Fu Panda", "Animation", 120);
+
+        //When
+        Mockito.when(movieRepository.existsByTitle(newMovie.getTitle())).thenReturn(true);
+
+
+        //Then
+        Assertions.assertThrows(IllegalArgumentException.class, () -> { underTest.createMovie(newMovie);});
+    }
+
+
+    @Test
+    public void testCreateMovieShouldThrowNullPointerExceptionWhenMovieIsNull() {
+        // Given
+
+        // When
+        Assertions.assertThrows(NullPointerException.class,
+                () -> underTest.createMovie(null));
+
+        // Then
+        Mockito.verifyNoMoreInteractions(movieRepository);
+    }
+
+
+    @Test
+    void testMovieShouldNotBeUpdatedIfMovieDoesNotExist(){
+
+        //Given
+        MovieDto newMovie = new MovieDto("Kung-Fu Panda", "Animation", 120);
+
+        //When
+        Mockito.when(movieRepository.existsByTitle(newMovie.getTitle())).thenReturn(false);
+
+
+        //Then
+        Assertions.assertThrows(IllegalArgumentException.class, () -> { underTest.updateMovie(
+                newMovie.getTitle(),
+                newMovie.getGenre(),
+                newMovie.getLength()
+        );});
+    }
+
+    @Test
+    public void testUpdateMovieShouldModifyTheEntityWhenTheInputIsValid() {
+        //Given
+        Movie movie = new Movie("Tangled", "animationn", 125);
+        Mockito.when(movieRepository
+                        .findByTitle("Tangled")).thenReturn(movie);
+        Mockito.when(movieRepository
+                        .existsByTitle("Tangled")).thenReturn(true);
+
+        MovieDto requiredMovie = new MovieDto.Builder()
+                .withTitle("Tangled")
+                .withGenre("animation")
+                .withLength(400)
+                .build();
+
+        Movie expected = new Movie(requiredMovie.getTitle(),
+                requiredMovie.getGenre(),
+                requiredMovie.getLength());
+        //When
+        underTest.updateMovie(requiredMovie.getTitle(),
+                requiredMovie.getGenre(),
+                requiredMovie.getLength());
+
+        //Then
+        Assertions.assertEquals(expected, movieRepository
+                .findByTitle("Tangled"));
+        Mockito.verify(movieRepository)
+                .existsByTitle("Tangled");
+        Mockito.verify(movieRepository, Mockito.times(2))
+                .findByTitle("Tangled");
+        Mockito.verify(movieRepository)
+                .save(expected);
+        Mockito.verifyNoMoreInteractions(movieRepository);
+    }
+
+    @Test
+    public void testWhenTheInputValidThenDeleteMovie() {
+
+        //Given
+        Mockito.when(movieRepository
+                        .existsByTitle("Tangled"))
+                .thenReturn(true);
+
+        //When
+        underTest.deleteMovieByTitle("Tangled");
+
+        //Then
+        Mockito.verify(movieRepository)
+                .existsByTitle("Tangled");
+        Mockito.verify(movieRepository)
+                .deleteMovieByTitle("Tangled");
+
+        Mockito.verifyNoMoreInteractions(movieRepository);
+
+    }
+
+    @Test
+    public void testWhenMovieDoesNotExistThenDeleteMovieShouldThrowIllegalArgException(){
+        //Given
+        Mockito.when(movieRepository
+                        .existsByTitle("Tangled"))
+                .thenReturn(false);
+
+        //Then
+        Assertions.assertThrows(IllegalArgumentException.class, () -> { underTest.deleteMovieByTitle("Tangled");});
+    }
+
+    @Test
+    public void testMovieFindByTitleShouldReturnMovieIfItExists(){
+        //Given
+        Mockito.when(movieRepository
+                            .existsByTitle(ENTITY.getTitle()))
+                .thenReturn(true);
+
+        //When
+        underTest.findByTitle(ENTITY.getTitle());
+
+        //Then
+        Mockito.verify(movieRepository).findByTitle(ENTITY.getTitle());
     }
 
 }

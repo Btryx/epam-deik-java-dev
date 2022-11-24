@@ -8,14 +8,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-<span class="pc bpc" id="L11" title="11 of 18 branches missed.">@Data</span>
-<span class="nc" id="L12">@NoArgsConstructor</span>
+@Data
+@NoArgsConstructor
 public class Room {
 
     @Id
-<span class="fc" id="L16">    String name;</span>
-<span class="fc" id="L17">    int rows;</span>
-<span class="fc" id="L18">    int cols;</span>
+    String name;
+    int rows;
+    int cols;
 
 <span class="fc" id="L20">    public Room(String name, int rows, int cols) {</span>
 <span class="fc" id="L21">        this.name = name;</span>

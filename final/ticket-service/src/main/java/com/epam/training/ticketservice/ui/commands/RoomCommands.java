@@ -30,33 +30,37 @@ public class RoomCommands {
     @ShellMethodAvailability("isAvailable")
     @ShellMethod(key = "create room", value = "Create new room")
     public String addRoom(String name, int rows, int cols) {
-        roomService.createRoom(new RoomDto(name, rows, cols));
-        return "New room created, with the name: " + name + ".";
+        try {
+            roomService.createRoom(new RoomDto(name, rows, cols));
+            return "New room created, with the name: " + name + ".";
+        } catch (IllegalArgumentException e) {
+            return e.getMessage();
+        }
+
     }
 
     @ShellMethodAvailability("isAvailable")
     @ShellMethod(key = "update room", value = "Update existing room")
     public String editRoom(String name, int rows, int cols) {
-        if (roomService.getRoomByRoomName(name).isPresent()) {
+        try {
             roomService.updateRoom(name, rows, cols);
-            return "Room with name " + name + " updated.";
+            return "Room updated";
+        } catch (IllegalArgumentException e) {
+            return e.getMessage();
         }
-        return "No room with name " + name + ".";
     }
 
     @ShellMethodAvailability("isAvailable")
     @ShellMethod(key = "delete room", value = "Delete existing room")
     public String deleteRoom(String name) {
-        Optional<RoomDto> roomDto = roomService.getRoomByRoomName(name);
-        if (roomDto.isPresent()) {
-            RoomDto room = new RoomDto(roomDto.get().getName(),
-                    roomDto.get().getRows(),
-                    roomDto.get().getCols());
-            roomService.deleteRoom(room);
-            return "Room with name " + name + " deleted.";
+        try {
+            roomService.deleteRoom(name);
+            return "Room deleted";
+        } catch (IllegalArgumentException e) {
+            return e.getMessage();
         }
-        return "No room with name " + name;
     }
+
 
     public String roomListToString(List<RoomDto> list) {
         return list.stream()

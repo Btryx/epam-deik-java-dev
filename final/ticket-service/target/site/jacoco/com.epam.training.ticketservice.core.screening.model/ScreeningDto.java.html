@@ -9,12 +9,12 @@ import lombok.Value;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-<span class="nc bnc" id="L12" title="All 28 branches missed.">@Value</span>
+@Value
 public class ScreeningDto {
 
-<span class="nc" id="L15">    Movie movie;</span>
-<span class="nc" id="L16">    Room room;</span>
-<span class="nc" id="L17">    Date time;</span>
+    Movie movie;
+    Room room;
+    Date time;
 
     @Override
     public String toString() {
@@ -26,31 +26,31 @@ public class ScreeningDto {
     }
 
     public static Builder builder() {
-<span class="nc" id="L29">        return new Builder();</span>
+<span class="fc" id="L29">        return new Builder();</span>
     }
 
-<span class="nc" id="L32">    public static class Builder {</span>
+<span class="fc" id="L32">    public static class Builder {</span>
         private Movie movie;
         private Room room;
         private Date time;
 
         public Builder withMovie(Movie movie) {
-<span class="nc" id="L38">            this.movie = movie;</span>
-<span class="nc" id="L39">            return this;</span>
+<span class="fc" id="L38">            this.movie = movie;</span>
+<span class="fc" id="L39">            return this;</span>
         }
 
         public Builder withRoom(Room room) {
-<span class="nc" id="L43">            this.room = room;</span>
-<span class="nc" id="L44">            return this;</span>
+<span class="fc" id="L43">            this.room = room;</span>
+<span class="fc" id="L44">            return this;</span>
         }
 
         public Builder withTime(Date time) {
-<span class="nc" id="L48">            this.time = time;</span>
-<span class="nc" id="L49">            return this;</span>
+<span class="fc" id="L48">            this.time = time;</span>
+<span class="fc" id="L49">            return this;</span>
         }
 
         public ScreeningDto build() {
-<span class="nc" id="L53">            return new ScreeningDto(movie, room, time);</span>
+<span class="fc" id="L53">            return new ScreeningDto(movie, room, time);</span>
         }
     }
 }

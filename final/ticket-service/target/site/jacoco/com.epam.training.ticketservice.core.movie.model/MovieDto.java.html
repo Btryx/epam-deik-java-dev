@@ -5,12 +5,12 @@ import lombok.Value;
 
 import java.util.Objects;
 
-<span class="fc" id="L8">@Value</span>
+@Value
 public class MovieDto {
 
-<span class="fc" id="L11">    String title;</span>
-<span class="fc" id="L12">    String genre;</span>
-<span class="fc" id="L13">    int length;</span>
+    String title;
+    String genre;
+    int length;
 
     @Override
     public String toString() {
@@ -19,60 +19,32 @@ public class MovieDto {
                 + length + &quot; minutes)&quot;;
     }
 
-    @Override
-    public boolean equals(Object o) {
-<span class="pc bpc" id="L24" title="1 of 2 branches missed.">        if (this == o) {</span>
-<span class="nc" id="L25">            return true;</span>
-        }
-<span class="pc bpc" id="L27" title="2 of 4 branches missed.">        if (o == null || getClass() != o.getClass()) {</span>
-<span class="nc" id="L28">            return false;</span>
-        }
-
-<span class="fc" id="L31">        MovieDto movieDto = (MovieDto) o;</span>
-
-<span class="pc bpc" id="L33" title="1 of 2 branches missed.">        if (length != movieDto.length) {</span>
-<span class="nc" id="L34">            return false;</span>
-        }
-<span class="pc bpc" id="L36" title="1 of 2 branches missed.">        if (!Objects.equals(title, movieDto.title)) {</span>
-<span class="nc" id="L37">            return false;</span>
-        }
-<span class="fc" id="L39">        return Objects.equals(genre, movieDto.genre);</span>
-    }
-
-    @Override
-    public int hashCode() {
-<span class="nc bnc" id="L44" title="All 2 branches missed.">        int result = title != null ? title.hashCode() : 0;</span>
-<span class="nc bnc" id="L45" title="All 2 branches missed.">        result = 31 * result + (genre != null ? genre.hashCode() : 0);</span>
-<span class="nc" id="L46">        result = 31 * result + length;</span>
-<span class="nc" id="L47">        return result;</span>
-    }
-
     public static Builder builder() {
-<span class="fc" id="L51">        return new Builder();</span>
+<span class="fc" id="L23">        return new Builder();</span>
     }
 
-<span class="fc" id="L54">    public static class Builder {</span>
+<span class="fc" id="L26">    public static class Builder {</span>
         private String title;
         private String genre;
         private int length;
 
         public Builder withTitle(String title) {
-<span class="fc" id="L60">            this.title = title;</span>
-<span class="fc" id="L61">            return this;</span>
+<span class="fc" id="L32">            this.title = title;</span>
+<span class="fc" id="L33">            return this;</span>
         }
 
         public Builder withGenre(String genre) {
-<span class="fc" id="L65">            this.genre = genre;</span>
-<span class="fc" id="L66">            return this;</span>
+<span class="fc" id="L37">            this.genre = genre;</span>
+<span class="fc" id="L38">            return this;</span>
         }
 
         public Builder withLength(int length) {
-<span class="fc" id="L70">            this.length = length;</span>
-<span class="fc" id="L71">            return this;</span>
+<span class="fc" id="L42">            this.length = length;</span>
+<span class="fc" id="L43">            return this;</span>
         }
 
         public MovieDto build() {
-<span class="fc" id="L75">            return new MovieDto(title, genre, length);</span>
+<span class="fc" id="L47">            return new MovieDto(title, genre, length);</span>
         }
     }
 }

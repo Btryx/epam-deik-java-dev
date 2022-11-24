@@ -19,34 +19,6 @@ public class MovieDto {
                 + length + " minutes)";
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        MovieDto movieDto = (MovieDto) o;
-
-        if (length != movieDto.length) {
-            return false;
-        }
-        if (!Objects.equals(title, movieDto.title)) {
-            return false;
-        }
-        return Objects.equals(genre, movieDto.genre);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = title != null ? title.hashCode() : 0;
-        result = 31 * result + (genre != null ? genre.hashCode() : 0);
-        result = 31 * result + length;
-        return result;
-    }
-
     public static Builder builder() {
         return new Builder();
     }
