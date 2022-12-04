@@ -11,4 +11,6 @@ public interface UserService {
     Optional<UserDto> describe();
 
     void registerUser(String username, String password);
+
+    boolean isUserLoggedIn();
 }

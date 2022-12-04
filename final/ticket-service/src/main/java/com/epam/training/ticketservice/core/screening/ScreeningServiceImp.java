@@ -35,16 +35,16 @@ public class ScreeningServiceImp implements ScreeningService {
     public void createScreening(ScreeningDto screeningDto) {
 
         if (!movieRepository.existsByTitle(screeningDto.getMovie().getTitle())) {
-            throw new IllegalArgumentException("Movie does not exists.");
+            throw new IllegalArgumentException("Movie does not exist");
         }
 
         if (!roomRepository.existsByName(screeningDto.getRoom().getName())) {
-            throw new IllegalArgumentException("Room does not exists.");
+            throw new IllegalArgumentException("Room does not exist");
         }
 
         if (screeningRepository.existsByMovieAndRoomAndTime(
                 screeningDto.getMovie(), screeningDto.getRoom(), screeningDto.getTime())) {
-            throw new IllegalArgumentException("Screening already exists");
+            throw new IllegalArgumentException("Screening already exist");
         }
 
         checkScreeningOverlapping(screeningDto);

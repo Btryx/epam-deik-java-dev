@@ -124,7 +124,6 @@ public class ScreeningServiceImpTest {
                         .save(ENTITY))
                 .thenReturn(ENTITY);
 
-
         //Then
         Assertions.assertThrows(IllegalArgumentException.class, () -> { underTest.createScreening(DTO);});
     }

@@ -1,6 +1,9 @@
 package com.epam.training.ticketservice.ui.commands;
 
 
+import com.epam.training.ticketservice.core.booking.BookingService;
+import com.epam.training.ticketservice.core.booking.model.BookingDto;
+import com.epam.training.ticketservice.core.booking.persistence.Booking;
 import com.epam.training.ticketservice.core.user.UserDto;
 import com.epam.training.ticketservice.core.user.UserService;
 import com.epam.training.ticketservice.core.user.persistence.User;
@@ -9,13 +12,17 @@ import org.springframework.shell.Availability;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @ShellComponent
 @AllArgsConstructor
 public class UserCommands {
 
     private final UserService userService;
+    private final BookingService bookingService;
 
     @ShellMethod(key = "sign out", value = "User logout")
     public String logout() {
@@ -23,7 +30,7 @@ public class UserCommands {
         if (user.isEmpty()) {
             return "You need to login first!";
         }
-        return user.get() + " is logged out!";
+        return user.get().getUsername() + " is logged out!";
     }
 
     @ShellMethod(key = "sign in", value = "User login")
@@ -32,7 +39,7 @@ public class UserCommands {
         if (user.isEmpty() || user.get().getRole() != User.Role.USER) {
             return "Login failed due to incorrect credentials";
         }
-        return user.get() + " is successfully logged in!";
+        return user.get().getUsername() + " is successfully logged in!";
     }
 
     @ShellMethod(key = "sign in privileged", value = "Admin login")
@@ -54,7 +61,17 @@ public class UserCommands {
         if (user.get().getRole() == User.Role.ADMIN) {
             return "Signed in with privileged account '" + user.get().getUsername() + "'";
         }
-        return "Signed in with account '" + user.get().getUsername() + "'";
+        List<Booking> bookings = bookingService
+                .getBookingForUser(user.get().getUsername());
+
+        if (bookings == null || bookings.isEmpty()) {
+            return "Signed in with account '" + user.get().getUsername() + "'\n"
+                    + "You have not booked any tickets yet";
+        }
+
+        return "Signed in with account '" + user.get().getUsername() + "'\n"
+                + "Your previous bookings are\n"
+                + bookings.toString().replace("[", "").replace("]","");
     }
 
     @ShellMethod(key = "sign up", value = "User registration")
@@ -72,5 +89,12 @@ public class UserCommands {
         return user.isPresent() && user.get().getRole() == User.Role.ADMIN
                 ? Availability.available()
                 : Availability.unavailable("You are not an admin!");
+    }
+
+    private Availability isAvailableForUser() {
+        Optional<UserDto> user = userService.describe();
+        return user.isPresent() && user.get().getRole() == User.Role.USER
+                ? Availability.available()
+                : Availability.unavailable("You are not logged in!");
     }
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="17" failures="0" name="com.training.epam.ticketservice.at.TestExecutor" time="97.025" errors="0" skipped="0">
+<testsuite tests="24" failures="0" name="com.training.epam.ticketservice.at.TestExecutor" time="149.334" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
-    <property name="idea.version" value="2021.3.3"/>
+    <property name="idea.version" value="2022.2.4"/>
     <property name="java.vm.version" value="11.0.11+9"/>
     <property name="sun.boot.library.path" value="C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot\bin"/>
     <property name="maven.multiModuleProjectDirectory" value="C:\Users\olahb\Desktop\Egyetem\java\fork\epam-deik-java-dev\final"/>
@@ -46,7 +46,7 @@
     <property name="user.name" value="olahb"/>
     <property name="java.vm.specification.version" value="11"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2021.3.3 clean verify -P requirements-grade2,requirements-grade3"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2022.2.4 clean verify -P requirements-grade2,requirements-grade3,requirements-grade4"/>
     <property name="java.home" value="C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -64,21 +64,28 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="allow creating accounts and logging in" name="the admin account exists by default and can be logged in with the correct password" time="4.696"/>
-  <testcase classname="allow creating accounts and logging in" name="the admin account can be signed out" time="5.118"/>
-  <testcase classname="allow creating accounts and logging in" name="the admin account can not be logged in with incorrect password" time="4.829"/>
-  <testcase classname="allows creating movie descriptions" name="an admin user can create and list movies" time="5.183"/>
-  <testcase classname="allows creating movie descriptions" name="an admin user can update a movie" time="5.152"/>
-  <testcase classname="allows creating movie descriptions" name="an admin user can delete a movie" time="5.243"/>
-  <testcase classname="allows creating movie descriptions" name="an unauthenticated user can list movies" time="5.445"/>
-  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can create and list rooms" time="4.924"/>
-  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can update a room" time="5.321"/>
-  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can delete a room" time="5.169"/>
-  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an unauthenticated user can list rooms" time="5.286"/>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin user can create and query screenings" time="6.807"/>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin can not create overlapping screenings in the same room" time="6.766"/>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin can create overlapping screenings in different rooms" time="6.757"/>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin can not create screenings during a 10 minute long breaks after another screening in the same room" time="6.794"/>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin can create screenings even if there is a break after a screening in a different room" time="6.797"/>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin user can delete screenings" time="6.738"/>
+  <testcase classname="allow creating accounts and logging in" name="the admin account exists by default and can be logged in with the correct password" time="4.805"/>
+  <testcase classname="allow creating accounts and logging in" name="the admin account can be signed out" time="5.035"/>
+  <testcase classname="allow creating accounts and logging in" name="the admin account can not be logged in with incorrect password" time="4.903"/>
+  <testcase classname="allow creating accounts and logging in" name="non-privileged accounts can be created and logged in with the correct password" time="5.022"/>
+  <testcase classname="allow creating accounts and logging in" name="non-privileged accounts can not be logged in with the incorrect password" time="5.185"/>
+  <testcase classname="allow creating accounts and logging in" name="non-privileged accounts can be signed out" time="5.155"/>
+  <testcase classname="allows users to book tickets for screenings, and show booking history" name="an authenticated user can book a ticket for a screening" time="7.747"/>
+  <testcase classname="allows users to book tickets for screenings, and show booking history" name="an authenticated user can not book a ticket if at least one of the seats is already taken" time="8.42"/>
+  <testcase classname="allows creating movie descriptions" name="an admin user can create and list movies" time="5.177"/>
+  <testcase classname="allows creating movie descriptions" name="an admin user can update a movie" time="5.173"/>
+  <testcase classname="allows creating movie descriptions" name="an admin user can delete a movie" time="5.848"/>
+  <testcase classname="allows creating movie descriptions" name="an unauthenticated user can list movies" time="5.399"/>
+  <testcase classname="allows creating movie descriptions" name="an authenticated, non-privileged user can list movies" time="8.366"/>
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can create and list rooms" time="5.438"/>
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can update a room" time="5.914"/>
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can delete a room" time="5.275"/>
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an unauthenticated user can list rooms" time="7.362"/>
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an authenticated, non-privileged user can list rooms" time="5.983"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin user can create and query screenings" time="7.034"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can not create overlapping screenings in the same room" time="7.952"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can create overlapping screenings in different rooms" time="7.354"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can not create screenings during a 10 minute long breaks after another screening in the same room" time="6.91"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can create screenings even if there is a break after a screening in a different room" time="7.024"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin user can delete screenings" time="6.853"/>
 </testsuite>

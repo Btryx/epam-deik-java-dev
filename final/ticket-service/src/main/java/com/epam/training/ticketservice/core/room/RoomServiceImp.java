@@ -47,7 +47,7 @@ public class RoomServiceImp implements RoomService {
     @Transactional
     public void deleteRoom(String name) {
         if (!existsByName(name)) {
-            throw new IllegalArgumentException("Room does not exists");
+            throw new IllegalArgumentException("Room does not exist");
         }
         roomRepository.deleteRoomByName(name);
     }
@@ -56,7 +56,7 @@ public class RoomServiceImp implements RoomService {
     @Transactional
     public void updateRoom(String name, int rows, int cols) {
         if (!existsByName(name)) {
-            throw new IllegalArgumentException("Room does not exists");
+            throw new IllegalArgumentException("Room does not exist");
         }
         Room room = roomRepository.findByName(name);
         room.setRows(rows);

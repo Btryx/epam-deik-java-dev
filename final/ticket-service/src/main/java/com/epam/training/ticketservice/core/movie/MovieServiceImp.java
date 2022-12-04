@@ -47,7 +47,7 @@ public class MovieServiceImp implements MovieService {
     @Transactional
     public void deleteMovieByTitle(String title) {
         if (!existsByTitle(title)) {
-            throw new IllegalArgumentException("Movie does not exists");
+            throw new IllegalArgumentException("Movie does not exist");
         }
         movieRepository.deleteMovieByTitle(title);
     }
@@ -62,7 +62,7 @@ public class MovieServiceImp implements MovieService {
     public void updateMovie(String title, String genre, int length) {
 
         if (!existsByTitle(title)) {
-            throw new IllegalArgumentException("Movie does not exists");
+            throw new IllegalArgumentException("Movie does not exist");
         }
 
         Movie movie = movieRepository.findByTitle(title);

@@ -4,10 +4,8 @@ package com.epam.training.ticketservice.core.user;
 import com.epam.training.ticketservice.core.user.persistence.User;
 import com.epam.training.ticketservice.core.user.persistence.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -43,5 +41,10 @@ public class UserServiceImpl implements UserService {
     public void registerUser(String username, String password) {
         User user = new User(username, password, User.Role.USER);
         userRepository.save(user);
+    }
+
+    @Override
+    public boolean isUserLoggedIn() {
+        return describe().isPresent();
     }
 }
